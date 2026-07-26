@@ -359,8 +359,8 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 [data-theme="dark"] .copy-btn:hover{background:rgba(169,164,255,.12);border-color:rgba(169,164,255,.3);color:#a9a4ff}
 [data-theme="dark"] .copy-all-btn{background:rgba(169,164,255,.1);border-color:rgba(169,164,255,.2);color:#a9a4ff}
 [data-theme="dark"] .copy-all-btn:hover{background:rgba(169,164,255,.18)}
-.model-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600;background:rgba(99,91,255,.08);border:1px solid rgba(99,91,255,.18);color:var(--accent)}
-[data-theme="dark"] .model-badge{background:rgba(169,164,255,.1);border-color:rgba(169,164,255,.2);color:#a9a4ff}
+
+
 </style>
 </head>
 <body>
@@ -535,11 +535,7 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
   <!-- Assistant tab -->
   <section class="tab" id="tab-assistant">
     <div class="page-head">
-      <div><h2>Assistant</h2><p>Powered by NVIDIA Nemotron via your secure edge function.</p></div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <span class="model-badge" id="modelBadge"></span>
-        <button class="btn-ghost" onclick="openAiSettings()">⚙ AI Settings</button>
-      </div>
+      <div><h2>Assistant</h2><p>Ask anything about your orders.</p></div>
     </div>
     <div class="glass chat-shell">
       <div class="chat-log" id="chatLog">
@@ -1212,47 +1208,11 @@ function addMsg(role, text){
 }
 function quickAsk(q){ document.getElementById("chatInput").value = q; sendChat(); }
 
-/* AI Settings — NVIDIA Nemotron model picker */
-const NVIDIA_MODELS = [
-  { id: "nvidia/nemotron-3-ultra-550b-a55b", name: "Nemotron 3 Ultra 550B", desc: "Most powerful — deep reasoning", thinking: true },
-  { id: "nvidia/nemotron-4-340b-instruct", name: "Nemotron-4 340B Instruct", desc: "Flagship instruct model", thinking: false },
-  { id: "nvidia/llama-3.1-nemotron-70b-instruct", name: "Llama 3.1 Nemotron 70B", desc: "Fast & capable", thinking: false },
-  { id: "nvidia/nemotron-mini-4b-instruct", name: "Nemotron Mini 4B", desc: "Lightweight & quick", thinking: false },
-];
-
-function getAiCfg() {
-  const raw = JSON.parse(localStorage.getItem("dealdesk_ai_cfg") || "{}");
-  return { model: raw.model || NVIDIA_MODELS[0].id };
-}
-
-function currentModelName() {
-  const cfg = getAiCfg();
-  const m = NVIDIA_MODELS.find(x => x.id === cfg.model);
-  return m ? m.name : cfg.model.split("/").pop();
-}
-
-function openAiSettings() {
-  const cfg = getAiCfg();
-  const modelOptions = NVIDIA_MODELS.map(m =>
-    `<option value="${m.id}"${cfg.model === m.id ? " selected" : ""}>${m.name} — ${m.desc}</option>`
-  ).join("");
-  openModal(`<h3>AI Settings</h3>
-  <div class="m-sub">Choose an NVIDIA Nemotron model. Requests run through your secure Supabase edge function — no API key needed here.</div>
-  <label class="field">Model</label>
-  <select id="aiModel" class="pill-input">${modelOptions}</select>
-  <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Cancel</button>
-  <button class="btn-primary" onclick="saveAiSettings()">Save</button></div>`);
-}
-
-function saveAiSettings() {
-  const model = document.getElementById("aiModel").value;
-  localStorage.setItem("dealdesk_ai_cfg", JSON.stringify({ model }));
-  closeModal();
-  const mName = NVIDIA_MODELS.find(m=>m.id===model)?.name || model;
-  toast("AI settings saved", "Model: " + mName);
-  const badge = document.getElementById("modelBadge");
-  if (badge) badge.textContent = currentModelName();
-}
+/* AI model is fixed to Nemotron 3 Ultra 550B — no on-site customization.
+   The NVIDIA key lives only in the Supabase edge function secret. */
+const AI_MODEL = "nvidia/nemotron-3-ultra-550b-a55b";
+const AI_MODEL_NAME = "Nemotron 3 Ultra 550B";
+const AI_THINKING = true;
 
 async function sendChat(){
   const inp = document.getElementById("chatInput");
@@ -1260,23 +1220,21 @@ async function sendChat(){
   inp.value = "";
   addMsg("user", text);
   chatHistory.push({ role:"user", content:text });
-  const aiCfg = getAiCfg();
-  const modelInfo = NVIDIA_MODELS.find(m => m.id === aiCfg.model) || NVIDIA_MODELS[0];
-  const thinkEl = addMsg("think", "Thinking (" + currentModelName() + ")\u2026");
+  const thinkEl = addMsg("think", "Thinking (" + AI_MODEL_NAME + ")\u2026");
   const btn = document.getElementById("chatSendBtn"); btn.disabled = true;
   try{
     const { data: { session } } = await sb.auth.getSession();
     const cfg = getConfig();
     /* Build payload — include thinking config for Ultra model */
     const payload = {
-      model: aiCfg.model,
+      model: AI_MODEL,
       messages: [{ role:"system", content: ordersContext() }, ...chatHistory.slice(-12)],
       temperature: 0.7,
       top_p: 0.95,
       max_tokens: 4096,
       stream: true
     };
-    if (modelInfo.thinking) {
+    if (AI_THINKING) {
       payload.temperature = 1;
       payload.max_tokens = 16384;
       payload.extra_body = { chat_template_kwargs: { enable_thinking: true }, reasoning_budget: 16384 };
@@ -1388,7 +1346,7 @@ function subscribeUpdates(){
 fillBanks();
 boot();
 /* Update model badge on load */
-try{document.getElementById("modelBadge").textContent=currentModelName();}catch(e){}
+
 </script>
 </body>
 </html>
