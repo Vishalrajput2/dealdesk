@@ -284,82 +284,6 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 @media(max-width:760px){
   #appView{padding:18px 14px 104px}.topbar{position:static;width:auto;height:auto;margin-bottom:20px;padding:16px 18px;flex-direction:row;align-items:center}.topbar .logo{margin:0}.topbar .nav,.topbar .userbox small,.topbar .userbox .btn-ghost{display:none}.topbar .userbox{display:flex;margin:0 0 0 auto}.grid-stats{grid-template-columns:repeat(2,1fr);gap:12px}.stat{padding:16px 14px}.stat .v{font-size:21px}.page-head h2{font-size:26px}.filter-tools{width:100%}.filter-tools .pill-input{flex:1;min-width:150px}.filter-scroll{width:100%}.order-list{grid-template-columns:1fr}.order-card{min-height:0}.mobile-tabs{position:fixed;display:flex;left:12px;right:12px;bottom:12px;z-index:44;padding:9px;justify-content:space-around;border-radius:22px}.mobile-tabs button{background:transparent;color:var(--muted);padding:8px 9px;border-radius:14px;font-size:10px;display:grid;gap:3px;place-items:center}.mobile-tabs button span{font-size:19px}.mobile-tabs button.active{color:var(--accent);box-shadow:inset 3px 3px 6px var(--neo-lo),inset -3px -3px 6px #fff}.fab{right:18px;bottom:91px;width:56px;height:56px}.modal,.modal.wide{padding:24px 18px}.form-grid{grid-template-columns:1fr}.charts{grid-template-columns:1fr}}
 </style>
-
-<!-- ========== DealDesk 4.0 · 3D depth layer ========== -->
-<style>
-/* --- 3D Card elevation & hover lift --- */
-.glass,.glass-lite,.overview-card,.pipe-card,.stat{
-  transform:translateZ(0);
-  transition:transform .22s cubic-bezier(.4,0,.2,1),box-shadow .22s cubic-bezier(.4,0,.2,1)!important;
-}
-.glass:hover,.glass-lite:hover,.overview-card:hover,.pipe-card:hover{
-  transform:translateY(-4px) scale(1.008);
-}
-.stat:hover{transform:translateY(-5px) scale(1.015)}
-.glass{box-shadow:0 2px 4px rgba(16,24,40,.06),0 12px 32px rgba(16,24,40,.08),0 24px 48px rgba(16,24,40,.04)!important}
-.glass:hover{box-shadow:0 8px 20px rgba(16,24,40,.10),0 20px 48px rgba(16,24,40,.12),0 32px 64px rgba(16,24,40,.06)!important}
-.glass-lite,.stat{box-shadow:0 1px 3px rgba(16,24,40,.05),0 8px 20px rgba(16,24,40,.06)!important}
-.glass-lite:hover,.stat:hover{box-shadow:0 6px 16px rgba(16,24,40,.09),0 16px 36px rgba(16,24,40,.10)!important}
-.overview-card,.pipe-card{box-shadow:0 2px 6px rgba(16,24,40,.05),0 10px 24px rgba(16,24,40,.07)!important}
-.overview-card:hover,.pipe-card:hover{box-shadow:0 8px 18px rgba(16,24,40,.10),0 20px 40px rgba(16,24,40,.10)!important}
-.btn-primary{
-  box-shadow:0 4px 14px rgba(99,91,255,.25),0 1px 3px rgba(99,91,255,.15),inset 0 1px 0 rgba(255,255,255,.25)!important;
-  transform:translateY(0);transition:transform .15s,box-shadow .15s!important;
-  text-shadow:0 1px 1px rgba(0,0,0,.12);
-}
-.btn-primary:hover{transform:translateY(-2px)!important;box-shadow:0 8px 22px rgba(99,91,255,.32),0 2px 6px rgba(99,91,255,.18),inset 0 1px 0 rgba(255,255,255,.25)!important}
-.btn-primary:active{transform:translateY(1px)!important;box-shadow:0 1px 4px rgba(99,91,255,.2),inset 0 2px 4px rgba(0,0,0,.12)!important}
-.btn-ghost,.btn-dark{box-shadow:0 2px 6px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04)!important;transition:transform .15s,box-shadow .15s,background .15s!important}
-.btn-ghost:hover,.btn-dark:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(16,24,40,.09)!important}
-.btn-ghost:active,.btn-dark:active{transform:translateY(1px);box-shadow:inset 0 2px 4px rgba(16,24,40,.1)!important}
-.fab{box-shadow:0 8px 24px rgba(99,91,255,.35),0 2px 8px rgba(99,91,255,.2)!important;transition:transform .2s,box-shadow .2s!important}
-.fab:hover{transform:translateY(-3px) scale(1.05)!important;box-shadow:0 14px 36px rgba(99,91,255,.4)!important}
-.fab:active{transform:translateY(1px) scale(.97)!important;box-shadow:0 2px 8px rgba(99,91,255,.2)!important}
-.nav button{transition:transform .15s,box-shadow .15s,background .15s,color .15s!important}
-.nav button.active{box-shadow:inset 0 2px 6px rgba(0,0,0,.18),0 1px 0 rgba(255,255,255,.08)!important;text-shadow:0 1px 1px rgba(0,0,0,.15)}
-.nav button:not(.active):hover{transform:translateX(3px)}
-.pill-input{box-shadow:inset 0 2px 4px rgba(16,24,40,.07),0 1px 0 rgba(255,255,255,.8)!important;transition:box-shadow .18s,border-color .18s!important}
-.pill-input:focus{box-shadow:inset 0 2px 4px rgba(16,24,40,.07),0 0 0 3px rgba(99,91,255,.15),0 1px 0 rgba(255,255,255,.8)!important}
-.chip{box-shadow:0 1px 3px rgba(16,24,40,.08),inset 0 1px 0 rgba(255,255,255,.5)!important;transition:transform .12s!important}
-.chip:hover{transform:translateY(-1px)}
-.seg{box-shadow:inset 0 2px 5px rgba(16,24,40,.08),0 1px 0 rgba(255,255,255,.7)!important}
-.seg button.on{box-shadow:0 2px 8px rgba(16,24,40,.12)!important}
-.topbar{box-shadow:4px 0 24px rgba(17,24,39,.2),0 0 60px rgba(17,24,39,.08)!important}
-.modal{box-shadow:0 -8px 32px rgba(16,24,40,.12),0 -24px 64px rgba(16,24,40,.08)!important}
-.toast{box-shadow:0 8px 24px rgba(16,24,40,.14)!important}
-.pipe-col{box-shadow:0 2px 8px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06)!important;transition:transform .2s!important}
-.pipe-col:hover{transform:translateY(-2px)}
-.welcome-panel{box-shadow:0 4px 16px rgba(0,0,0,.12),0 16px 40px rgba(0,0,0,.08),inset 0 1px 0 rgba(255,255,255,.06)!important}
-.money-row div{transition:background .15s,transform .12s!important}
-.money-row div:hover{transform:translateY(-1px)}
-[data-theme="dark"] .glass{box-shadow:0 2px 4px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.25),0 24px 48px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.04)!important}
-[data-theme="dark"] .glass:hover{box-shadow:0 8px 20px rgba(0,0,0,.3),0 20px 48px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04)!important}
-[data-theme="dark"] .glass-lite,[data-theme="dark"] .stat{box-shadow:0 1px 3px rgba(0,0,0,.2),0 8px 20px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.03)!important}
-[data-theme="dark"] .glass-lite:hover,[data-theme="dark"] .stat:hover{box-shadow:0 6px 16px rgba(0,0,0,.28),0 16px 36px rgba(0,0,0,.22)!important}
-[data-theme="dark"] .overview-card,[data-theme="dark"] .pipe-card{box-shadow:0 2px 6px rgba(0,0,0,.2),0 10px 24px rgba(0,0,0,.22)!important}
-[data-theme="dark"] .btn-primary{box-shadow:0 4px 14px rgba(99,91,255,.3),0 1px 3px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.12)!important}
-[data-theme="dark"] .btn-ghost,[data-theme="dark"] .btn-dark{box-shadow:0 2px 6px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.04)!important}
-[data-theme="dark"] .pill-input{box-shadow:inset 0 2px 4px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.04)!important}
-[data-theme="dark"] .pill-input:focus{box-shadow:inset 0 2px 4px rgba(0,0,0,.25),0 0 0 3px rgba(99,91,255,.2)!important}
-[data-theme="dark"] .topbar{box-shadow:4px 0 24px rgba(0,0,0,.35),0 0 60px rgba(0,0,0,.15)!important}
-[data-theme="dark"] .modal{box-shadow:0 -8px 32px rgba(0,0,0,.3),0 -24px 64px rgba(0,0,0,.2)!important}
-[data-theme="dark"] .toast{box-shadow:0 8px 24px rgba(0,0,0,.3)!important}
-[data-theme="dark"] .pipe-col{box-shadow:0 2px 8px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.18)!important}
-[data-theme="dark"] .welcome-panel{box-shadow:0 4px 16px rgba(0,0,0,.25),0 16px 40px rgba(0,0,0,.2)!important}
-[data-theme="dark"] .seg{box-shadow:inset 0 2px 5px rgba(0,0,0,.25)!important}
-[data-theme="dark"] .chip{box-shadow:0 1px 3px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06)!important}
-.copy-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;padding:0;margin-left:5px;border-radius:6px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer;vertical-align:middle;transition:all .15s;flex-shrink:0}
-.copy-btn:hover{background:rgba(99,91,255,.1);border-color:rgba(99,91,255,.25);color:var(--accent)}
-.copy-btn:active{transform:scale(.9)}
-.copy-btn svg{width:13px;height:13px;pointer-events:none}
-.copy-all-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:9px;background:rgba(99,91,255,.08);border:1px solid rgba(99,91,255,.2);color:var(--accent);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;margin-top:10px}
-.copy-all-btn:hover{background:rgba(99,91,255,.15);border-color:rgba(99,91,255,.35)}
-.copy-all-btn:active{transform:scale(.97)}
-.copy-all-btn svg{width:14px;height:14px}
-[data-theme="dark"] .copy-btn:hover{background:rgba(169,164,255,.12);border-color:rgba(169,164,255,.3);color:#a9a4ff}
-[data-theme="dark"] .copy-all-btn{background:rgba(169,164,255,.1);border-color:rgba(169,164,255,.2);color:#a9a4ff}
-[data-theme="dark"] .copy-all-btn:hover{background:rgba(169,164,255,.18)}
-</style>
 </head>
 <body>
 
@@ -533,7 +457,8 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
   <!-- Assistant tab -->
   <section class="tab" id="tab-assistant">
     <div class="page-head">
-      <div><h2>Assistant</h2><p>Ask anything about your orders.</p></div>
+      <div><h2>Assistant</h2><p>Powered by your secure edge function. It can see your order data.</p></div>
+      <button class="btn-ghost" onclick="openAiSettings()">⚙️ AI Settings</button>
     </div>
     <div class="glass chat-shell">
       <div class="chat-log" id="chatLog">
@@ -574,6 +499,8 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 <script>
 "use strict";
 /* ================= CONFIG ================= */
+// Option A: hard-code your project credentials here.
+// Option B: leave as-is; the app shows a one-time setup screen and stores them in this browser.
 const HARD_SUPABASE_URL  = "https://pdjbktudzniulcvjtprp.supabase.co";
 const HARD_SUPABASE_KEY  = "sb_publishable_H20fA5-v-OuCEib4UjoKcQ_zRL1V3CJ";
 const APP_VERSION = "1.0.0";
@@ -593,12 +520,12 @@ const INDIAN_BANKS = [
 ];
 
 /* ================= STATE ================= */
-let sb = null;
+let sb = null;            // supabase client
 let currentUser = null;
 let orders = [];
 let updates = [];
 let filter = "all";
-let chatHistory = [];
+let chatHistory = [];     // {role, content}
 let chartMonthly = null, chartSpend = null;
 
 /* ================= BOOT ================= */
@@ -630,19 +557,19 @@ function show(id){
     document.getElementById(v).style.display = (v===id) ? (v==="appView" ? "block" : "flex") : "none";
 }
 
-/* ================= PROFILE & SESSION ================= */
+/* ================= UPDATED PROFILE & SESSION ================= */
 async function handleSession(session){
   if (session && session.user){
-    if (currentUser && currentUser.id === session.user.id) return;
-    if (currentUser && currentUser.id !== session.user.id){ orders = []; chatHistory = []; }
+    if (currentUser && currentUser.id === session.user.id) return; // ignore token refreshes
     currentUser = session.user;
     show("appView");
     
+    // Check for Name instead of Email
     let fullName = currentUser.user_metadata?.full_name;
     if (!fullName) {
       document.getElementById("userLabel").textContent = "New User";
       document.getElementById("avatarEl").textContent = "U";
-      askForName();
+      askForName(); // Prompt user for their name
     } else {
       updateUserDisplay(fullName);
     }
@@ -677,479 +604,628 @@ async function saveName(){
   const fullName = `${first} ${last}`.trim();
   const { data, error } = await sb.auth.updateUser({ data: { first_name: first, last_name: last, full_name: fullName } });
   if (error) return toast("Couldn't save name", error.message, true);
-  currentUser.user_metadata = data.user.user_metadata;
+  currentUser.user_metadata = data.user.user_metadata; // update local state
   updateUserDisplay(fullName);
   closeModal();
 }
 
 /* ================= AUTH ================= */
 async function signInGoogle(){
-  const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin } });
+  const PRODUCTION_URL = "https://classy-bienenstitch-3ff324.netlify.app/";
+  const { error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: PRODUCTION_URL } });
   if (error) toast("Google sign-in failed", error.message, true);
 }
+
+</script>
+<style>
+/* ========== DealDesk 3.0 · clean fintech ========== */
+:root{--paper:#f4f6fa;--surface:#ffffff;--text:#172033;--muted:#697386;--accent:#635bff;--accent-2:#7c75ff;--line:#e5e9f0;--nav:#111827;--good:#087f5b;--warn:#a15c00;--info:#1769aa;--neo-hi:transparent;--neo-lo:transparent}
+body{background:var(--paper)}
+.glass,.glass-lite{background:#fff;border:1px solid var(--line);box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);backdrop-filter:none}
+.topbar{background:var(--nav);border:0;box-shadow:0 18px 40px rgba(17,24,39,.18)}
+.topbar .logo-name{color:#fff}.topbar .logo-mark{color:#8b85ff}.topbar .userbox small{color:#c9d0dc}.topbar .btn-ghost{background:#1f2937;color:#fff;border:1px solid #374151;box-shadow:none}
+.nav button{color:#9ca3af;box-shadow:none}.nav button:hover{color:#fff;background:#1f2937}.nav button.active{background:#635bff;color:#fff;box-shadow:none}
+.pill-input{background:#fff;border:1px solid #dfe3ea;box-shadow:0 1px 2px rgba(16,24,40,.04);border-radius:12px}.pill-input:focus{border-color:#635bff;box-shadow:0 0 0 3px rgba(99,91,255,.12)}
+.btn-primary{background:#635bff;color:#fff;box-shadow:0 5px 12px rgba(99,91,255,.2);border-radius:12px}.btn-primary:hover{background:#554df1;box-shadow:0 7px 16px rgba(99,91,255,.24)}
+.btn-ghost,.btn-dark{background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:0 1px 2px rgba(16,24,40,.04);border-radius:11px}.btn-ghost:hover,.btn-dark:hover{background:#f8f9fb;box-shadow:none}
+.page-head h2{letter-spacing:-.035em}.stat{border-radius:16px}.stat .v{font-size:28px}.order-list{grid-template-columns:1fr}.order-card{min-height:0;border-radius:18px;grid-template-columns:1fr auto}.money-row{display:flex}.money-row div{background:transparent;border-left:1px solid var(--line);border-radius:0;box-shadow:none;padding:4px 15px}.money-row div:first-child{border-left:0;padding-left:0}
+.order-card .meta span{background:#f4f6f9;border:1px solid #e7eaf0}.card-tools{right:18px;top:18px}.icon-btn{box-shadow:none}.fab{background:#635bff;box-shadow:0 12px 28px rgba(99,91,255,.34);border-radius:18px}
+.seg{background:#f1f3f7;border:1px solid #e3e7ee;box-shadow:none}.seg button.on{background:#fff;color:#635bff;box-shadow:0 1px 4px rgba(16,24,40,.12)}
+.mobile-tabs{background:#fff;border:1px solid var(--line);box-shadow:0 8px 28px rgba(16,24,40,.16)}.mobile-tabs button.active{color:#635bff;background:#f0efff;box-shadow:none}
+.ticket{position:relative;margin-top:18px;padding:17px 18px 17px 52px;border:1px solid #f1c76a;border-left:5px solid #e6a700;border-radius:14px;background:#fff8df;color:#5d4300;font-size:14px;font-weight:600;line-height:1.65;box-shadow:0 5px 16px rgba(161,92,0,.09)}
+.ticket::before{content:"🧾";position:absolute;left:17px;top:16px;font-size:21px;line-height:1}.ticket b{color:#302300;font-weight:800}.ticket b:last-child{display:inline-block;padding:1px 7px;border-radius:7px;background:#ffe7a3;color:#654700;white-space:nowrap}
+.theme-toggle{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px 12px;margin-top:10px;border-radius:11px;background:#1f2937;color:#fff;border:1px solid #374151;font-weight:600}.theme-toggle .theme-icon{font-size:16px}.app-credit{position:fixed;left:45px;bottom:42px;z-index:42;width:192px;text-align:center;color:#7f8999;font-size:11px;letter-spacing:.03em}.app-credit b{color:#c9d0dc;font-weight:700}
+[data-theme="dark"]{--paper:#0d111b;--surface:#151b27;--text:#eef2f8;--muted:#97a2b4;--line:#2a3343;--nav:#090d15;--good:#65d6ad;--warn:#ffc46b;--info:#70b7f5;color-scheme:dark}
+[data-theme="dark"] body{background:#0d111b;color:var(--text)}[data-theme="dark"] .glass,[data-theme="dark"] .glass-lite,[data-theme="dark"] .overview-card,[data-theme="dark"] .pipe-card,[data-theme="dark"] .focus-panel,[data-theme="dark"] .mobile-tabs{background:#151b27;border-color:#2a3343;color:#eef2f8;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+[data-theme="dark"] .pill-input,[data-theme="dark"] select.pill-input,[data-theme="dark"] .btn-ghost,[data-theme="dark"] .btn-dark{background:#111722;color:#eef2f8;border-color:#303a4b}[data-theme="dark"] .btn-ghost:hover{background:#1d2533}[data-theme="dark"] .order-card .meta span{background:#202837;border-color:#303a4b;color:#b9c2d1}
+[data-theme="dark"] .pipe-col{background:#101622;border-color:#252e3d}[data-theme="dark"] .pipe-count{background:#1d2533;border-color:#303a4b}[data-theme="dark"] .empty-pipe{border-color:#354054;color:#8995a7}[data-theme="dark"] .focus-line{border-color:#2a3343}
+[data-theme="dark"] .ticket{background:#302810;color:#ffe7a3;border-color:#705612;border-left-color:#f2b82b}[data-theme="dark"] .ticket b{color:#fff3c4}[data-theme="dark"] .ticket b:last-child{background:#59430d;color:#fff0b3}
+[data-theme="dark"] .seg{background:#101622;border-color:#2a3343}[data-theme="dark"] .seg button.on{background:#262f40;color:#a9a4ff}[data-theme="dark"] .chart-card,[data-theme="dark"] .form-card,[data-theme="dark"] .chat-shell{background:#151b27}
+.overview-hero{display:grid;grid-template-columns:1.4fr .8fr;gap:20px;margin-bottom:22px}.welcome-panel{padding:30px;background:linear-gradient(135deg,#171d2e,#293047);color:#fff;border:0}.welcome-panel p{color:#c7cfdd;max-width:560px;line-height:1.65;margin:8px 0 22px}.welcome-panel .btn-primary{width:auto}.focus-panel{padding:24px}.focus-panel h3{margin-bottom:16px}.focus-line{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.focus-line:last-child{border-bottom:0}.focus-line span{color:var(--muted);font-size:13px}.focus-line b{font-family:'Space Grotesk'}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:26px 2px 14px}.section-title h3{font-size:18px}.overview-orders{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.overview-card{padding:18px}.overview-card h4{margin:10px 0 5px}.overview-card p{font-size:12px;color:var(--muted);margin-bottom:15px}.overview-card .amount{font-family:'Space Grotesk';font-size:20px;font-weight:700}
+.pipeline{display:grid;grid-template-columns:repeat(4,minmax(235px,1fr));gap:16px;overflow-x:auto;padding:4px 2px 24px}.pipe-col{background:#eef1f6;border:1px solid #e1e5ec;border-radius:18px;padding:14px;min-height:400px}.pipe-head{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 14px}.pipe-head h3{font-size:14px}.pipe-count{background:#fff;border:1px solid var(--line);padding:3px 8px;border-radius:999px;font-size:12px}.pipe-list{display:grid;gap:12px}.pipe-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 4px 12px rgba(16,24,40,.05)}.pipe-card h4{font-size:14px;margin-bottom:4px}.pipe-card p{font-size:11px;color:var(--muted)}.pipe-card .pipe-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.pipe-card .pipe-amount{font-weight:700;font-family:'Space Grotesk'}.pipe-card button{padding:6px 9px}.empty-pipe{font-size:12px;color:#8b95a5;text-align:center;padding:28px 8px;border:1px dashed #cbd2dc;border-radius:12px}
+@media(max-width:1050px){.overview-orders{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:repeat(4,260px)}}
+@media(max-width:760px){.topbar{background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(16,24,40,.06)}.topbar .logo-name{color:var(--text)}.overview-hero{grid-template-columns:1fr}.overview-orders{grid-template-columns:1fr}.order-card{grid-template-columns:1fr}.money-row{display:grid;grid-template-columns:1fr 1fr}.money-row div,.money-row div:first-child{border-left:0;border-top:1px solid var(--line);padding:10px 0}.pipeline{grid-template-columns:repeat(4,82vw)}.app-credit{position:static;width:auto;margin:26px auto 6px;color:#7f8999}.theme-toggle{width:42px;height:42px;padding:0;margin:0}.theme-toggle .theme-label{display:none}[data-theme="dark"] .topbar{background:#151b27}[data-theme="dark"] .topbar .logo-name{color:#fff}}
+</style>
+<script>
+let pendingPhone = null;
+function normPhone(raw){
+  let p = raw.replace(/[\s\-()]/g,"");
+  if (/^\d{10}$/.test(p)) p = "+91" + p;           // assume India for 10-digit numbers
+  return p;
+}
 async function sendOtp(){
-  const phone = document.getElementById("phoneInput").value.trim();
-  if (!phone || phone.length < 10) return toast("Invalid phone number", "Enter full phone number with country code e.g. +91 9876543210", true);
-  const btn = document.getElementById("sendOtpBtn");
-  btn.disabled = true; btn.textContent = "Sending OTP...";
-  const { error } = await sb.auth.signInWithOtp({ phone });
+  const p = normPhone(document.getElementById("phoneInput").value);
+  if (!/^\+\d{10,15}$/.test(p)){ toast("Invalid number","Enter a valid mobile number, e.g. +91 98765 43210.", true); return; }
+  const btn = document.getElementById("sendOtpBtn"); btn.disabled = true; btn.textContent = "Sending…";
+  const { error } = await sb.auth.signInWithOtp({ phone: p });
   btn.disabled = false; btn.textContent = "Send OTP";
-  if (error) return toast("OTP failed", error.message, true);
+  if (error){ toast("Couldn't send OTP", error.message + " (Phone auth needs an SMS provider — see SETUP-GUIDE.md)", true); return; }
+  pendingPhone = p;
   document.getElementById("phoneStep").style.display = "none";
   document.getElementById("otpStep").style.display = "block";
-  toast("OTP sent", "Check your phone for the 6-digit code.");
-}
-function backToPhone(e){
-  e?.preventDefault();
-  document.getElementById("phoneStep").style.display = "block";
-  document.getElementById("otpStep").style.display = "none";
+  document.getElementById("otpInput").focus();
 }
 async function verifyOtp(){
-  const phone = document.getElementById("phoneInput").value.trim();
-  const token = document.getElementById("otpInput").value.trim();
-  if (token.length !== 6) return toast("Invalid code", "Enter the 6-digit code sent via SMS", true);
-  const btn = document.getElementById("verifyOtpBtn");
-  btn.disabled = true; btn.textContent = "Verifying...";
-  const { error } = await sb.auth.verifyOtp({ phone, token, type: 'sms' });
+  const code = document.getElementById("otpInput").value.trim();
+  if (code.length !== 6){ toast("Invalid code","The OTP is 6 digits.", true); return; }
+  const btn = document.getElementById("verifyOtpBtn"); btn.disabled = true; btn.textContent = "Verifying…";
+  const { error } = await sb.auth.verifyOtp({ phone: pendingPhone, token: code, type: "sms" });
   btn.disabled = false; btn.textContent = "Verify & sign in";
   if (error) toast("Verification failed", error.message, true);
 }
-async function signOut(){
-  await sb.auth.signOut();
-  location.reload();
-}
+function backToPhone(e){ e.preventDefault(); document.getElementById("otpStep").style.display="none"; document.getElementById("phoneStep").style.display="block"; }
+async function signOut(){ await sb.auth.signOut(); orders=[]; chatHistory=[]; location.reload(); }
 
-/* ================= DATA LOADING ================= */
+/* ================= HELPERS ================= */
+const inr = n => "₹" + Number(n||0).toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+const inrPlain = n => "INR " + Number(n||0).toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+function earningsOf(o){
+  const cashback = o.cashback_pct != null ? (Number(o.purchase_amount) * Number(o.cashback_pct) / 100) : 0;
+  return Number(o.commission || 0) + cashback;
+}
+function totalInBank(o){ return Number(o.sold_price || o.purchase_amount || 0) + earningsOf(o); }
+function fmtDate(d){ // -> DD/MM/YYYY
+  if (!d) return "—";
+  const dt = new Date(d + (d.length===10 ? "T00:00:00" : ""));
+  return String(dt.getDate()).padStart(2,"0") + "/" + String(dt.getMonth()+1).padStart(2,"0") + "/" + dt.getFullYear();
+}
+function esc(s){ return String(s??"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function toast(title, body, isErr){
+  const t = document.createElement("div");
+  t.className = "glass toast" + (isErr ? " err" : "");
+  t.innerHTML = "<b>" + esc(title) + "</b>" + esc(body || "");
+  document.getElementById("toastWrap").appendChild(t);
+  setTimeout(()=> t.remove(), 6500);
+}
+function showTab(name){
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.id === "tab-"+name));
+  document.querySelectorAll("#navBar button").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll("#mobileTabs button").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if (name === "earnings") renderCharts();
+  if (name === "overview") renderOverview();
+  if (name === "pipeline") renderPipeline();
+  if (name === "updates"){ localStorage.setItem("dealdesk_seen_ver", latestVersion()); document.getElementById("updateDot").style.display = "none"; }
+}
+function applyTheme(theme){
+  document.documentElement.dataset.theme=theme;
+  const btn=document.getElementById("themeToggle"); if(!btn) return;
+  btn.querySelector(".theme-icon").textContent=theme==="dark"?"☀":"☾";
+  btn.querySelector(".theme-label").textContent=theme==="dark"?"Light mode":"Dark mode";
+  btn.setAttribute("aria-label",theme==="dark"?"Switch to light theme":"Switch to dark theme");
+}
+function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("dealdesk_theme",next);applyTheme(next);}
+applyTheme(localStorage.getItem("dealdesk_theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"));
+/* modal helper: returns a small api */
+function openModal(html, wide){
+  const box = document.getElementById("modalBox");
+  box.className = "glass modal" + (wide ? " wide" : "");
+  box.innerHTML = html;
+  document.getElementById("modalWrap").classList.add("open");
+}
+function closeModal(){ document.getElementById("modalWrap").classList.remove("open"); }
+document.getElementById("modalWrap").addEventListener("click", e => { if (e.target.id === "modalWrap") closeModal(); });
+
+/* ================= ORDERS ================= */
+function pickPlat(btn){ document.querySelectorAll("#platSeg button").forEach(b=>b.classList.toggle("on", b===btn)); }
+function selectedPlat(){ return document.querySelector("#platSeg button.on").dataset.v; }
+function fillBanks(){
+  const sel = document.getElementById("fBank");
+  sel.innerHTML = "<option value=''>Select bank…</option>" + INDIAN_BANKS.map(b=>`<option>${esc(b)}</option>`).join("");
+}
+function previewCalc(){
+  const amt = parseFloat(document.getElementById("fAmount").value);
+  const com = parseFloat(document.getElementById("fCommission").value) || 0;
+  const cbRaw = document.getElementById("fCashback").value.trim();
+  const cb = cbRaw === "" ? null : parseFloat(cbRaw);
+  const box = document.getElementById("calcPreview");
+  document.getElementById("fSold").value = isNaN(amt) ? "" : amt.toLocaleString("en-IN");
+  if (isNaN(amt) || amt <= 0){ box.style.display = "none"; return; }
+  const cashbackAmt = cb != null && !isNaN(cb) ? amt * cb / 100 : 0;
+  const earning = com + cashbackAmt;
+  box.style.display = "block";
+  box.innerHTML =
+    `Sold price (auto): <b>${inr(amt)}</b><br>` +
+    `Commission offered: <b>${inr(com)}</b>` +
+    (cb != null && !isNaN(cb) ? ` &nbsp;+&nbsp; Cashback ${cb}%: <b>${inr(cashbackAmt)}</b>` : ` &nbsp;·&nbsp; No cashback`) + `<br>` +
+    `<span class="earnline">Total earning: ${inr(earning)}</span><br>` +
+    `Total in bank after settlement: <b>${inr(amt + earning)}</b>`;
+}
+function resetForm(){
+  for (const id of ["fItem","fOrderId","fLast4","fAmount","fCommission","fCashback","fSold"]) document.getElementById(id).value = "";
+  document.getElementById("fBank").selectedIndex = 0;
+  document.getElementById("fPayType").selectedIndex = 0;
+  document.getElementById("calcPreview").style.display = "none";
+}
+async function saveOrder(){
+  const item = document.getElementById("fItem").value.trim();
+  const orderId = document.getElementById("fOrderId").value.trim();
+  const bank = document.getElementById("fBank").value;
+  const payType = document.getElementById("fPayType").value;
+  const last4 = document.getElementById("fLast4").value.trim();
+  const amt = parseFloat(document.getElementById("fAmount").value);
+  const com = parseFloat(document.getElementById("fCommission").value);
+  const cbRaw = document.getElementById("fCashback").value.trim();
+  const cb = cbRaw === "" ? null : parseFloat(cbRaw);
+
+  if (!item)  return toast("Item name required","Give the order a name so you can recognise it.", true);
+  if (!orderId) return toast("Order ID required","Enter the order ID from the store — it's asked at ordering time.", true);
+  if (!bank)  return toast("Payment method required","Select the bank you paid with.", true);
+  if (last4 && !/^\d{4}$/.test(last4)) return toast("Check last 4 digits","Enter exactly 4 digits, or leave it blank.", true);
+  if (isNaN(amt) || amt <= 0) return toast("Purchase amount required","Enter the amount you paid.", true);
+  if (isNaN(com) || com < 0)  return toast("Commission required","Enter the commission offered (0 is fine).", true);
+  if (cb != null && (isNaN(cb) || cb < 0 || cb > 100)) return toast("Check cashback","Cashback is a percentage between 0 and 100 — or leave blank.", true);
+
+  const btn = document.getElementById("saveOrderBtn"); btn.disabled = true;
+  const { error } = await sb.from("orders").insert({
+    user_id: currentUser.id, platform: selectedPlat(), item_name: item, order_id: orderId,
+    payment_method: bank, payment_type: payType, payment_last4: last4 || null,
+    purchase_amount: amt, commission: com, cashback_pct: cb, sold_price: amt, status: "Ordered"
+  });
+  btn.disabled = false;
+  if (error) return toast("Couldn't save order", error.message, true);
+  toast("Order saved", `${item} is now tracked with status Ordered.`);
+  resetForm(); await loadOrders(); showTab("orders");
+}
 async function loadOrders(){
-  const { data, error } = await sb.from("orders").select("*").order("created_at",{ascending:false});
-  if (error){ toast("Error loading orders", error.message, true); return; }
+  const { data, error } = await sb.from("orders").select("*").order("created_at", {ascending:false});
+  if (error){ toast("Couldn't load orders", error.message, true); return; }
   orders = data || [];
-  renderAll();
+  renderOrders(); renderStats(); renderOverview(); renderPipeline();
+}
+function setFilter(f){
+  filter = f;
+  document.querySelectorAll("#orderFilters button").forEach(b => b.style.background = b.dataset.f===f ? "rgba(255,255,255,.22)" : "");
+  renderOrders();
+}
+function renderStats(){
+  const delivered = orders.filter(o => o.status === "Delivered" || o.status === "Settled");
+  const totEarn = delivered.reduce((s,o)=> s + earningsOf(o), 0);
+  const totSpend = orders.reduce((s,o)=> s + Number(o.purchase_amount), 0);
+  const pending = orders.filter(o => o.status !== "Delivered" && o.status !== "Settled").length;
+  document.getElementById("statRow").innerHTML = `
+    <div class="glass-lite stat"><div class="k">Total orders</div><div class="v mono">${orders.length}</div></div>
+    <div class="glass-lite stat"><div class="k">In transit / pending</div><div class="v mono">${pending}</div></div>
+    <div class="glass-lite stat"><div class="k">Total spent</div><div class="v mono">${inr(totSpend)}</div></div>
+    <div class="glass-lite stat"><div class="k">Earnings (delivered)</div><div class="v mono" style="color:var(--good)">${inr(totEarn)}</div></div>`;
+}
+function statusChip(s){ return `<span class="chip ${s.toLowerCase()}">${s}</span>`; }
+function renderOverview(){
+  const stats=document.getElementById("overviewStats"),recent=document.getElementById("overviewOrders"),focus=document.getElementById("focusPanel");
+  if(!stats||!recent||!focus) return;
+  const pending=orders.filter(o=>o.status==="Ordered").length,shipped=orders.filter(o=>o.status==="Shipped").length,delivered=orders.filter(o=>o.status==="Delivered").length;
+  const settled=orders.filter(o=>o.status==="Settled"),earned=settled.reduce((s,o)=>s+earningsOf(o),0),receivable=orders.filter(o=>o.status!=="Settled").reduce((s,o)=>s+totalInBank(o),0);
+  stats.innerHTML=`<div class="glass stat"><div class="k">Active orders</div><div class="v mono">${pending+shipped+delivered}</div></div><div class="glass stat"><div class="k">In transit</div><div class="v mono">${shipped}</div></div><div class="glass stat"><div class="k">Expected in bank</div><div class="v mono">${inr(receivable)}</div></div><div class="glass stat"><div class="k">Settled earnings</div><div class="v mono" style="color:var(--good)">${inr(earned)}</div></div>`;
+  focus.innerHTML=`<div class="focus-line"><span>Waiting to ship</span><b>${pending}</b></div><div class="focus-line"><span>In transit</span><b>${shipped}</b></div><div class="focus-line"><span>Need settlement date</span><b>${delivered}</b></div>`;
+  recent.innerHTML=orders.length?orders.slice(0,3).map(o=>`<div class="glass overview-card"><div>${statusChip(o.status)}</div><h4>${esc(o.item_name)}</h4><p>${esc(o.platform)} · ${esc(o.order_id)}</p><div class="amount">${inr(o.purchase_amount)}</div></div>`).join(""):`<div class="glass empty" style="grid-column:1/-1">No orders yet. Add your first deal to begin.</div>`;
+}
+function renderPipeline(){
+  const board=document.getElementById("pipelineBoard"); if(!board) return;
+  const stages=["Ordered","Shipped","Delivered","Settled"];
+  board.innerHTML=stages.map(stage=>{const items=orders.filter(o=>o.status===stage);return `<div class="pipe-col"><div class="pipe-head"><h3>${stage}</h3><span class="pipe-count">${items.length}</span></div><div class="pipe-list">${items.length?items.map(o=>`<div class="pipe-card"><h4>${esc(o.item_name)}</h4><p>${esc(o.platform)} · ${esc(o.order_id)}</p><div class="pipe-bottom"><span class="pipe-amount">${inr(o.purchase_amount)}</span><button class="btn-ghost" onclick="editOrder('${o.id}')" aria-label="Edit ${esc(o.item_name)}">✎</button></div></div>`).join(""):`<div class="empty-pipe">No ${stage.toLowerCase()} orders</div>`}</div></div>`}).join("");
+}
+function renderOrders(){
+  const list = document.getElementById("orderList");
+  const q = (document.getElementById("orderSearch")?.value || "").trim().toLowerCase();
+  const sort = document.getElementById("orderSort")?.value || "newest";
+  const shown = orders.filter(o => (filter === "all" ? true : (filter === "Delivered" ? (o.status==="Delivered"||o.status==="Settled") : o.status === filter)) &&
+    (!q || [o.item_name,o.order_id,o.platform,o.status,o.payment_method,o.tracking_number].some(v=>String(v||"").toLowerCase().includes(q))))
+    .sort((a,b)=> sort==="oldest" ? new Date(a.created_at)-new Date(b.created_at) : sort==="value" ? Number(b.purchase_amount)-Number(a.purchase_amount) : sort==="earning" ? earningsOf(b)-earningsOf(a) : new Date(b.created_at)-new Date(a.created_at));
+  if (!shown.length){
+    list.innerHTML = `<div class="glass empty"><div class="big">📦</div><b>No orders here yet</b><p style="margin-top:6px">Log your next Yaper or Perkpay order from the “+ New order” tab.</p></div>`;
+    return;
+  }
+  list.innerHTML = shown.map(o => {
+    const earn = earningsOf(o), bank = totalInBank(o);
+    const cbTxt = o.cashback_pct != null ? `${o.cashback_pct}% (${inr(Number(o.purchase_amount)*o.cashback_pct/100)})` : "—";
+    let actions = "";
+    if (o.status === "Ordered")  actions = `<button class="btn-primary" style="width:auto;padding:11px 20px" onclick="askTracking('${o.id}')">Mark as Shipped</button>`;
+    if (o.status === "Shipped")  actions = `<button class="btn-primary" style="width:auto;padding:11px 20px" onclick="askDelivered('${o.id}')">Is it Delivered?</button>`;
+    if (o.status === "Delivered") actions = `<button class="btn-primary" style="width:auto;padding:11px 20px" onclick="askSettlement('${o.id}')">Select withdrawal date</button>`;
+    
+    actions += `<button class="btn-ghost" onclick="copyOrderId('${esc(o.order_id)}')">Copy ID</button>`;
+    const ticket = (o.status === "Settled" && o.settlement_date)
+      ? `<div class="ticket">Amount for the item <b>${esc(o.item_name)}</b> of <b>${inrPlain(bank)}</b> will be settled in your linked bank account on <b>${fmtDate(o.settlement_date)}</b>.</div>` : "";
+    return `<div class="glass order-card notch" id="card-${o.id}">
+      <div class="card-tools">
+        <button class="btn-ghost icon-btn" title="Edit order" aria-label="Edit ${esc(o.item_name)}" onclick="editOrder('${o.id}')">✎</button>
+        <div style="position:relative"><button class="btn-ghost icon-btn" aria-label="More actions" aria-expanded="false" onclick="toggleOrderMenu(event,'${o.id}')">⋯</button>
+          <div class="glass dots-menu" id="menu-${o.id}"><button onclick="copyOrderId('${esc(o.order_id)}')">Copy order ID</button><button onclick="editOrder('${o.id}')">Edit details</button><button onclick="deleteOrder('${o.id}')" style="color:#b23b3b">Delete order</button></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-right:86px">
+          <span class="title">${esc(o.item_name)}</span>
+          <span class="chip plat">${esc(o.platform)}</span>
+          ${statusChip(o.status)}
+        </div>
+        <div class="meta">
+          <span>Order ID: <b class="mono">${esc(o.order_id)}</b></span>
+          ${o.tracking_number ? `<span>Tracking: <b class="mono">${esc(o.tracking_number)}</b></span>` : ""}
+          <span>${esc(o.payment_method||"")} ${o.payment_type ? "· "+esc(o.payment_type) : ""} ${o.payment_last4 ? "•••• "+esc(o.payment_last4) : ""}</span>
+          <span>Placed: ${fmtDate((o.created_at||"").slice(0,10))}</span>
+        </div>
+        <div class="money-row">
+          <div><b>Purchase</b><span class="mono">${inr(o.purchase_amount)}</span></div>
+          <div><b>Sold price</b><span class="mono">${inr(o.sold_price)}</span></div>
+          <div><b>Commission</b><span class="mono">${inr(o.commission)}</span></div>
+          <div><b>Cashback</b><span class="mono">${cbTxt}</span></div>
+          <div class="earn"><b>Total earning</b><span class="mono">${inr(earn)}</span></div>
+          <div><b>Total in bank</b><span class="mono">${inr(bank)}</span></div>
+        </div>
+      </div>
+      <div class="order-actions">${actions}</div>
+      ${ticket}
+    </div>`;
+  }).join("");
 }
 
+function toggleOrderMenu(event,id){
+  event.stopPropagation();
+  const target=document.getElementById("menu-"+id),card=document.getElementById("card-"+id),willOpen=!target.classList.contains("open");
+  closeOrderMenus();
+  if(willOpen){target.classList.add("open");card.classList.add("menu-open");event.currentTarget.setAttribute("aria-expanded","true");}
+}
+function closeOrderMenus(){document.querySelectorAll(".dots-menu.open").forEach(m=>m.classList.remove("open"));document.querySelectorAll(".order-card.menu-open").forEach(c=>c.classList.remove("menu-open"));document.querySelectorAll('[aria-expanded="true"]').forEach(b=>b.setAttribute("aria-expanded","false"));}
+document.addEventListener("click",closeOrderMenus);
+async function copyOrderId(id){try{await navigator.clipboard.writeText(id);toast("Order ID copied",id)}catch(e){toast("Copy failed","Select the order ID and copy it manually.",true)}}
+
+/* ---- status transitions ---- */
+function askTracking(id){
+  const o = orders.find(x=>x.id===id); if(!o) return;
+  openModal(`<h3>Product shipped 🚚</h3>
+    <div class="m-sub">Enter the tracking number for <b>${esc(o.item_name)}</b> to mark it as Shipped.</div>
+    <label class="field">Tracking number</label>
+    <input id="mTrack" class="pill-input mono" placeholder="e.g. AWB123456789IN">
+    <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Cancel</button>
+    <button class="btn-primary" onclick="confirmTracking('${id}')">Mark as Shipped</button></div>`);
+  document.getElementById("mTrack").focus();
+}
+async function confirmTracking(id){
+  const tn = document.getElementById("mTrack").value.trim();
+  if (!tn) return toast("Tracking number required","Paste the tracking / AWB number from the courier.", true);
+  const { error } = await sb.from("orders").update({ status:"Shipped", tracking_number: tn }).eq("id", id);
+  if (error) return toast("Update failed", error.message, true);
+  closeModal(); toast("Marked as Shipped","We'll ask about delivery next."); await loadOrders();
+}
+function askDelivered(id){
+  const o = orders.find(x=>x.id===id); if(!o) return;
+  openModal(`<h3>Delivered? 📬</h3>
+    <div class="m-sub">Has <b>${esc(o.item_name)}</b> (tracking <b class="mono">${esc(o.tracking_number||"—")}</b>) been delivered?</div>
+    <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Not yet</button>
+    <button class="btn-primary" onclick="confirmDelivered('${id}')">Yes, Delivered</button></div>`);
+}
+async function confirmDelivered(id){
+  const { error } = await sb.from("orders").update({ status:"Delivered", delivered_at: new Date().toISOString() }).eq("id", id);
+  if (error) return toast("Update failed", error.message, true);
+  closeModal(); await loadOrders();
+  toast("Marked as Delivered","Now select the withdrawal date to see your settlement summary.");
+  askSettlement(id); // per flow: settlement date is asked only after delivery
+}
+function askSettlement(id){
+  const o = orders.find(x=>x.id===id) || orders.find(x=>x.id===id);
+  const oo = orders.find(x=>x.id===id); if(!oo) return;
+  const bank = totalInBank(oo);
+  openModal(`<h3>Withdrawal date 🏦</h3>
+    <div class="m-sub"><b>${esc(oo.item_name)}</b> — total to receive: <b>${inr(bank)}</b> (sold ${inr(oo.sold_price)} + earning ${inr(earningsOf(oo))}).<br>When will this settle in your linked bank account?</div>
+    <label class="field">Settlement / withdrawal date</label>
+    <input id="mDate" class="pill-input" type="date">
+    <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Later</button>
+    <button class="btn-primary" onclick="confirmSettlement('${id}')">Save date</button></div>`);
+}
+async function confirmSettlement(id){
+  const d = document.getElementById("mDate").value;
+  if (!d) return toast("Pick a date","Select the settlement date shown by the platform.", true);
+  const { error } = await sb.from("orders").update({ status:"Settled", settlement_date: d }).eq("id", id);
+  if (error) return toast("Update failed", error.message, true);
+  closeModal(); await loadOrders();
+  const o = orders.find(x=>x.id===id);
+  if (o) toast("Settlement saved", `Amount for the item ${o.item_name} of ${inrPlain(totalInBank(o))} will be settled in your linked bank account on ${fmtDate(d)}.`);
+}
+function deleteOrder(id){
+  const o = orders.find(x=>x.id===id); if(!o) return;
+  openModal(`<h3>Delete order?</h3><div class="m-sub">Remove <b>${esc(o.item_name)}</b> (${esc(o.order_id)}) permanently? This can't be undone.</div>
+    <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Keep it</button>
+    <button class="btn-primary" onclick="confirmDelete('${id}')">Delete</button></div>`);
+}
+async function confirmDelete(id){
+  const { error } = await sb.from("orders").delete().eq("id", id);
+  if (error) return toast("Delete failed", error.message, true);
+  closeModal(); toast("Order deleted",""); await loadOrders();
+}
+
+/* ---- edit order (any field) ---- */
+function editOrder(id){
+  const o = orders.find(x=>x.id===id); if(!o) return;
+  const bankOptions = `<option value="">Select bank…</option>` + INDIAN_BANKS.map(b=>`<option ${o.payment_method===b?"selected":""}>${esc(b)}</option>`).join("");
+  const payTypes = ["Credit Card","Debit Card","UPI","Net Banking","EMI"];
+  const payTypeOptions = payTypes.map(p=>`<option ${o.payment_type===p?"selected":""}>${esc(p)}</option>`).join("");
+  const statuses = ["Ordered","Shipped","Delivered","Settled"];
+  const statusOptions = statuses.map(s=>`<option value="${s}" ${o.status===s?"selected":""}>${s}</option>`).join("");
+  openModal(`<h3>Edit order</h3>
+    <div class="m-sub">Update any detail for <b>${esc(o.item_name)}</b>.</div>
+    <div class="form-grid">
+      <div><label class="field">Platform</label>
+        <div class="seg" id="eSeg">
+          <button type="button" class="${o.platform==='Yaper'?'on':''}" data-v="Yaper" onclick="pickEditPlat(this)">Yaper</button>
+          <button type="button" class="${o.platform==='Perkpay'?'on':''}" data-v="Perkpay" onclick="pickEditPlat(this)">Perkpay</button>
+        </div>
+      </div>
+      <div><label class="field">Item name</label><input id="eItem" class="pill-input" value="${esc(o.item_name)}"></div>
+      <div><label class="field">Order ID</label><input id="eOrderId" class="pill-input" value="${esc(o.order_id)}"></div>
+      <div><label class="field">Payment method (bank)</label><select id="eBank" class="pill-input">${bankOptions}</select></div>
+      <div><label class="field">Payment type</label><select id="ePayType" class="pill-input">${payTypeOptions}</select></div>
+      <div><label class="field">Last 4 digits</label><input id="eLast4" class="pill-input mono" maxlength="4" inputmode="numeric" value="${esc(o.payment_last4||"")}"></div>
+      <div><label class="field">Purchase amount (INR)</label><input id="eAmount" class="pill-input mono" type="number" min="0" step="0.01" value="${o.purchase_amount}"></div>
+      <div><label class="field">Commission offered (INR)</label><input id="eCommission" class="pill-input mono" type="number" min="0" step="0.01" value="${o.commission}"></div>
+      <div><label class="field">Cashback from bank (%) — optional</label><input id="eCashback" class="pill-input mono" type="number" min="0" max="100" step="0.01" value="${o.cashback_pct??''}"></div>
+      <div><label class="field">Status</label><select id="eStatus" class="pill-input">${statusOptions}</select></div>
+      <div><label class="field">Tracking number</label><input id="eTracking" class="pill-input mono" value="${esc(o.tracking_number||"")}"></div>
+      <div><label class="field">Settlement / withdrawal date</label><input id="eSettleDate" class="pill-input" type="date" value="${o.settlement_date||""}"></div>
+    </div>
+    <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Cancel</button>
+    <button class="btn-primary" onclick="confirmEditOrder('${id}')">Save changes</button></div>`, true);
+}
+function pickEditPlat(btn){ document.querySelectorAll("#eSeg button").forEach(b=>b.classList.toggle("on", b===btn)); }
+async function confirmEditOrder(id){
+  const o = orders.find(x=>x.id===id); if(!o) return;
+  const item = document.getElementById("eItem").value.trim();
+  const orderId = document.getElementById("eOrderId").value.trim();
+  const bank = document.getElementById("eBank").value;
+  const payType = document.getElementById("ePayType").value;
+  const last4 = document.getElementById("eLast4").value.trim();
+  const amt = parseFloat(document.getElementById("eAmount").value);
+  const com = parseFloat(document.getElementById("eCommission").value);
+  const cbRaw = document.getElementById("eCashback").value.trim();
+  const cb = cbRaw === "" ? null : parseFloat(cbRaw);
+  const status = document.getElementById("eStatus").value;
+  const tracking = document.getElementById("eTracking").value.trim();
+  const settleDate = document.getElementById("eSettleDate").value;
+  const platBtn = document.querySelector("#eSeg button.on");
+  const platform = platBtn ? platBtn.dataset.v : o.platform;
+
+  if (!item) return toast("Item name required","Give the order a name so you can recognise it.", true);
+  if (!orderId) return toast("Order ID required","Enter the order ID from the store.", true);
+  if (!bank) return toast("Payment method required","Select the bank you paid with.", true);
+  if (last4 && !/^\d{4}$/.test(last4)) return toast("Check last 4 digits","Enter exactly 4 digits, or leave it blank.", true);
+  if (isNaN(amt) || amt <= 0) return toast("Purchase amount required","Enter the amount paid.", true);
+  if (isNaN(com) || com < 0) return toast("Commission required","Enter the commission offered (0 is fine).", true);
+  if (cb != null && (isNaN(cb) || cb < 0 || cb > 100)) return toast("Check cashback","Cashback is a percentage between 0 and 100 — or leave blank.", true);
+  if (status === "Settled" && !settleDate) return toast("Settlement date required","Pick a settlement date for a Settled order, or change the status.", true);
+
+  const { error } = await sb.from("orders").update({
+    platform, item_name: item, order_id: orderId, payment_method: bank, payment_type: payType,
+    payment_last4: last4 || null, purchase_amount: amt, commission: com, cashback_pct: cb, sold_price: amt,
+    status, tracking_number: tracking || null, settlement_date: settleDate || null
+  }).eq("id", id);
+  if (error) return toast("Couldn't update order", error.message, true);
+  closeModal(); toast("Order updated", `${item} has been updated.`); await loadOrders();
+}
+
+/* ================= EARNINGS / ANALYTICS ================= */
+function renderCharts(){
+  const delivered = orders.filter(o => o.status === "Delivered" || o.status === "Settled");
+  // monthly earnings (by delivered date, falling back to created date)
+  const byMonth = {};
+  for (const o of delivered){
+    const d = new Date(o.delivered_at || o.created_at);
+    const key = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0");
+    byMonth[key] = (byMonth[key] || 0) + earningsOf(o);
+  }
+  const months = Object.keys(byMonth).sort();
+  const monthLabels = months.map(m => new Date(m+"-01T00:00:00").toLocaleString("en-IN",{month:"short",year:"2-digit"}));
+  // spending by payment method (all orders)
+  const bySpend = {};
+  for (const o of orders){
+    const k = (o.payment_method || "Unknown") + (o.payment_last4 ? " ••"+o.payment_last4 : "");
+    bySpend[k] = (bySpend[k] || 0) + Number(o.purchase_amount);
+  }
+  const spendKeys = Object.keys(bySpend).sort((a,b)=> bySpend[b]-bySpend[a]);
+
+  // headline stats
+  const now = new Date(); const thisKey = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  const prev = new Date(now.getFullYear(), now.getMonth()-1, 1);
+  const prevKey = prev.getFullYear()+"-"+String(prev.getMonth()+1).padStart(2,"0");
+  const totalEarn = delivered.reduce((s,o)=>s+earningsOf(o),0);
+  document.getElementById("earnStats").innerHTML = `
+    <div class="glass-lite stat"><div class="k">Earnings — all time</div><div class="v mono" style="color:var(--good)">${inr(totalEarn)}</div></div>
+    <div class="glass-lite stat"><div class="k">Earnings — this month</div><div class="v mono">${inr(byMonth[thisKey]||0)}</div></div>
+    <div class="glass-lite stat"><div class="k">Earnings — last month</div><div class="v mono">${inr(byMonth[prevKey]||0)}</div></div>
+    <div class="glass-lite stat"><div class="k">Total spending</div><div class="v mono">${inr(orders.reduce((s,o)=>s+Number(o.purchase_amount),0))}</div></div>`;
+
+  Chart.defaults.color = "rgba(255,255,255,.7)";
+  Chart.defaults.font.family = "Inter";
+  if (chartMonthly) chartMonthly.destroy();
+  chartMonthly = new Chart(document.getElementById("chartMonthly"), {
+    type: "bar",
+    data: { labels: monthLabels, datasets: [{ label:"Earnings (₹)", data: months.map(m=>byMonth[m]),
+      backgroundColor: "rgba(255,195,160,.85)", hoverBackgroundColor:"#FF8FA3", borderRadius: 10, maxBarThickness: 46 }]},
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false},
+      tooltip:{ callbacks:{ label: c => " " + inr(c.parsed.y) } }},
+      scales:{ x:{ grid:{color:"rgba(255,255,255,.08)"} }, y:{ grid:{color:"rgba(255,255,255,.08)"}, ticks:{ callback:v=>"₹"+Number(v).toLocaleString("en-IN") } } } }
+  });
+  if (chartSpend) chartSpend.destroy();
+  const palette = ["#FFC3A0","#FF8FA3","#C59BFF","#9BC9FF","#7BE8A8","#FFD48A","#FF9BE0","#A0FFE6","#F6FF9B","#FFB4B4"];
+  chartSpend = new Chart(document.getElementById("chartSpend"), {
+    type: "doughnut",
+    data: { labels: spendKeys, datasets: [{ data: spendKeys.map(k=>bySpend[k]),
+      backgroundColor: spendKeys.map((_,i)=>palette[i%palette.length]), borderColor:"rgba(0,0,0,.25)", borderWidth:2 }]},
+    options: { responsive:true, maintainAspectRatio:false, cutout:"62%",
+      plugins:{ legend:{ position:"bottom", labels:{ boxWidth:12, padding:14 } },
+      tooltip:{ callbacks:{ label: c => " " + c.label + ": " + inr(c.parsed) } } } }
+  });
+}
+
+/* ================= AI ASSISTANT ================= */
+function ordersContext(){
+  const compact = orders.slice(0, 60).map(o => ({
+    item:o.item_name, platform:o.platform, order_id:o.order_id, status:o.status,
+    purchase:+o.purchase_amount, commission:+o.commission, cashback_pct:o.cashback_pct,
+    sold:+o.sold_price, earning:+earningsOf(o).toFixed(2), total_in_bank:+totalInBank(o).toFixed(2),
+    payment:(o.payment_method||"")+(o.payment_last4?" ••"+o.payment_last4:""), tracking:o.tracking_number||null,
+    placed:(o.created_at||"").slice(0,10), settlement:o.settlement_date||null
+  }));
+  return "You are DealDesk Assistant, a concise, friendly helper inside a dealer order-tracking app. " +
+  "The user is a dealer in India ordering from Yaper and Perkpay. Currency is INR. " +
+  "Earnings rule: earning = commission + (cashback_pct% of purchase amount); sold price equals purchase amount; total_in_bank = sold + earning. " +
+  "Today is " + new Date().toISOString().slice(0,10) + ". Here is the user's live order data as JSON:\n" +
+  JSON.stringify(compact) + "\nAnswer using this data when relevant. Keep answers short and use ₹ formatting.";
+}
+function addMsg(role, text){
+  const log = document.getElementById("chatLog");
+  const div = document.createElement("div");
+  div.className = "msg " + role;
+  div.textContent = text;
+  log.appendChild(div); log.scrollTop = log.scrollHeight;
+  return div;
+}
+function quickAsk(q){ document.getElementById("chatInput").value = q; sendChat(); }
+
+/* ADDED: AI Settings UI */
+function openAiSettings() {
+  const cfg = JSON.parse(localStorage.getItem("dealdesk_ai_cfg") || "{}");
+  openModal(`<h3>AI Settings</h3>
+  <div class="m-sub">Select your AI model and API key. These are saved locally in your browser and sent to your edge function.</div>
+  <label class="field">Model name</label>
+  <input id="aiModel" class="pill-input" placeholder="e.g. meta/llama-3.1-8b-instruct" value="${cfg.model || ''}">
+  <label class="field" style="margin-top:14px">API Key</label>
+  <input id="aiKey" type="password" class="pill-input" placeholder="sk-..." value="${cfg.key || ''}">
+  <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Cancel</button>
+  <button class="btn-primary" onclick="saveAiSettings()">Save</button></div>`);
+}
+
+function saveAiSettings() {
+  const model = document.getElementById("aiModel").value.trim();
+  const key = document.getElementById("aiKey").value.trim();
+  localStorage.setItem("dealdesk_ai_cfg", JSON.stringify({ model, key }));
+  closeModal();
+  toast("AI settings saved", "Your model and API key have been updated.");
+}
+
+async function sendChat(){
+  const inp = document.getElementById("chatInput");
+  const text = inp.value.trim(); if (!text) return;
+  inp.value = "";
+  addMsg("user", text);
+  chatHistory.push({ role:"user", content:text });
+  const selectedAgents = selectExpertAgents(text);
+  const thinking = addMsg("think", "Routing to " + selectedAgents.join(" + ") + "…");
+  const btn = document.getElementById("chatSendBtn"); btn.disabled = true;
+  try{
+    const { data: { session } } = await sb.auth.getSession();
+    const cfg = getConfig();
+    const aiCfg = JSON.parse(localStorage.getItem("dealdesk_ai_cfg") || "{}");
+    const expertResults = await Promise.all(selectedAgents.map(async agent => {
+      const profile = EXPERT_AGENTS[agent];
+      const res = await fetch(cfg.url + "/functions/v1/ai-assistant", {
+        method: "POST",
+        headers: { "Content-Type":"application/json", "Authorization": "Bearer " + session.access_token, "apikey": cfg.key },
+        body: JSON.stringify({
+          model: aiCfg.model || null,
+          messages: [{ role:"system", content: expertSystemPrompt(agent, profile) }, ...chatHistory.slice(-8)]
+        })
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) throw new Error(data.error || (agent + " failed: HTTP " + res.status));
+      return {agent, result: parseExpertResult(data.content || "")};
+    }));
+    thinking.remove();
+    const output={selected_agents:selectedAgents,reasoning:{},final_answer:{}};
+    expertResults.forEach(({agent,result})=>{output.reasoning[agent]=result.reasoning;output.final_answer[agent]=result.final_answer;});
+    const reply = JSON.stringify(output,null,2);
+    addMsg("ai", reply);
+    chatHistory.push({ role:"assistant", content: reply });
+  }catch(err){
+    thinking.remove();
+    addMsg("ai", "⚠️ Assistant unavailable: " + err.message + "\nMake sure the ai-assistant edge function is deployed and NVIDIA_API_KEY secret is set (see SETUP-GUIDE.md).");
+  }finally{ btn.disabled = false; }
+}
+
+const EXPERT_AGENTS={
+  ScienceExpert:"Science, medicine, biology, chemistry, physics and evidence-based explanations.",
+  TechnologyExpert:"Software, AI, cybersecurity, devices, engineering and technical troubleshooting.",
+  HistoryExpert:"Historical events, people, chronology, causes and context.",
+  CustomerSupportExpert:"DealDesk orders, delivery, payments, refunds, settlements and practical customer help.",
+  LegalExpert:"General legal information, contracts, consumer rights and risk spotting; always note jurisdiction limits.",
+  CreativeWritingExpert:"Stories, marketing copy, naming, scripts, tone and creative revision.",
+  BusinessExpert:"Sales, finance, operations, strategy, reseller margins and decision support."
+};
+function selectExpertAgents(q){
+  const t=q.toLowerCase(), picked=[];
+  const rules=[
+    ["LegalExpert",/\b(legal|law|contract|court|rights|tenant|lease|liability|policy)\b/],
+    ["ScienceExpert",/\b(science|virus|bacteria|biology|chemistry|physics|medical|health|disease)\b/],
+    ["TechnologyExpert",/\b(technology|software|code|api|computer|ai|cyber|app|website|bug)\b/],
+    ["HistoryExpert",/\b(history|historical|century|war|empire|ancient|revolution)\b/],
+    ["CreativeWritingExpert",/\b(write|story|poem|creative|caption|slogan|script|rewrite)\b/],
+    ["BusinessExpert",/\b(business|profit|margin|sales|strategy|finance|investment|growth)\b/],
+    ["CustomerSupportExpert",/\b(order|delivery|tracking|refund|cashback|settlement|bank|yaper|perkpay|dealdesk)\b/]
+  ];
+  rules.forEach(([name,re])=>{if(re.test(t)&&picked.length<2)picked.push(name);});
+  return picked.length?picked:["CustomerSupportExpert"];
+}
+function expertSystemPrompt(name,profile){
+  return `You are ${name}. Expertise: ${profile}\n${ordersContext()}\nRespond as strict JSON with exactly two string fields: reasoning and final_answer. reasoning must be a concise, user-facing rationale summary describing factors checked and evidence used; never reveal private chain-of-thought. Put conclusions only in final_answer. Be accurate, practical and complete.`;
+}
+function parseExpertResult(raw){
+  try{const clean=String(raw).replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"");const v=JSON.parse(clean);return {reasoning:String(v.reasoning||"Reviewed the relevant facts and constraints."),final_answer:String(v.final_answer||raw)};}catch{return {reasoning:"Reviewed the query using this expert’s domain criteria and the available DealDesk context.",final_answer:String(raw||"No answer returned.")};}
+}
+
+/* ================= UPDATES & CHANGELOG ================= */
+function latestVersion(){ return updates.length ? updates[0].version : APP_VERSION; }
 async function loadUpdates(){
-  const { data } = await sb.from("app_updates").select("*").order("released_at",{ascending:false});
+  const { data, error } = await sb.from("app_updates").select("*").order("released_at", {ascending:false});
+  if (error){ document.getElementById("updateList").innerHTML = `<div class="glass empty">Couldn't load changelog: ${esc(error.message)}</div>`; return; }
   updates = data || [];
   renderUpdates();
+  const seen = localStorage.getItem("dealdesk_seen_ver");
+  if (updates.length && seen !== updates[0].version){
+    document.getElementById("updateDot").style.display = "block";
+    toast("Update: v" + updates[0].version + " — " + updates[0].title, "Open “What's new” to read the changelog.");
+  }
 }
-
+function renderUpdates(){
+  const list = document.getElementById("updateList");
+  if (!updates.length){ list.innerHTML = `<div class="glass empty"><div class="big">📰</div>No updates published yet.</div>`; return; }
+  list.innerHTML = updates.map(u => `
+    <div class="glass log-item">
+      <div class="ver">v${esc(u.version)}</div>
+      <div><h4>${esc(u.title)}</h4><p>${esc(u.notes||"")}</p><time>${fmtDate((u.released_at||"").slice(0,10))}</time></div>
+    </div>`).join("");
+}
 function subscribeUpdates(){
-  sb.channel('updates-channel')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'app_updates' }, payload => {
-      updates.unshift(payload.new);
-      renderUpdates();
+  sb.channel("app-updates")
+    .on("postgres_changes", { event:"INSERT", schema:"public", table:"app_updates" }, payload => {
+      updates.unshift(payload.new); renderUpdates();
       document.getElementById("updateDot").style.display = "block";
+      toast("New update: v" + payload.new.version, payload.new.title || "Open “What's new” for details.");
     }).subscribe();
 }
 
-/* ================= RENDERING ================= */
-function renderAll(){
-  renderOverview();
-  renderOrders();
-  renderPipeline();
-  renderEarnings();
-  populateBanks();
-}
-
-function showTab(t){
-  document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
-  document.querySelectorAll(".nav button, .mobile-tabs button").forEach(x => x.classList.remove("active"));
-  const tabEl = document.getElementById("tab-" + t);
-  if (tabEl) tabEl.classList.add("active");
-  document.querySelectorAll(`[data-tab="${t}"]`).forEach(x => x.classList.add("active"));
-  if (t === "updates") document.getElementById("updateDot").style.display = "none";
-}
-
-function renderOverview(){
-  const totalSpend = orders.reduce((s,o) => s + Number(o.amount||0), 0);
-  const totalEarn = orders.reduce((s,o) => s + (Number(o.commission||0) + (Number(o.amount||0)*Number(o.cashback_pct||0)/100)), 0);
-  const pendingCount = orders.filter(o => o.status !== "Delivered").length;
-  
-  document.getElementById("overviewStats").innerHTML = `
-    <div class="glass stat"><div class="k">Total Orders</div><div class="v">${orders.length}</div></div>
-    <div class="glass stat"><div class="k">Total Spend</div><div class="v">₹${totalSpend.toLocaleString('en-IN')}</div></div>
-    <div class="glass stat"><div class="k">Est. Earnings</div><div class="v" style="color:var(--good)">₹${Math.round(totalEarn).toLocaleString('en-IN')}</div></div>
-    <div class="glass stat"><div class="k">Pending Delivery</div><div class="v" style="color:var(--warn)">${pendingCount}</div></div>
-  `;
-
-  const pending = orders.filter(o => o.status !== "Delivered").slice(0, 3);
-  document.getElementById("focusPanel").innerHTML = pending.length ? pending.map(o => `
-    <div style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;">
-      <div><b>${esc(o.item_name)}</b><br><small style="color:var(--muted)">${esc(o.platform)} • ${esc(o.order_id)}</small></div>
-      <span class="chip ${o.status.toLowerCase()}">${esc(o.status)}</span>
-    </div>
-  `).join('') : '<p style="color:var(--muted)">All clear! No pending shipments right now.</p>';
-
-  const recent = orders.slice(0, 4);
-  document.getElementById("overviewOrders").innerHTML = recent.length ? recent.map(o => renderOrderCardHTML(o)).join('') : '<div class="empty">No orders logged yet.</div>';
-}
-
-function renderOrderCardHTML(o){
-  const earn = Number(o.commission||0) + (Number(o.amount||0)*Number(o.cashback_pct||0)/100);
-  return `
-    <div class="glass order-card">
-      <div>
-        <div class="title">${esc(o.item_name)}</div>
-        <div class="meta">
-          <span class="chip plat">${esc(o.platform)}</span>
-          <span>ID: ${esc(o.order_id)}</span>
-          <span>${esc(o.bank_name||'N/A')} (${esc(o.pay_type||'Card')})</span>
-        </div>
-        <div class="money-row">
-          <div><b>Purchased</b><span>₹${Number(o.amount||0).toLocaleString('en-IN')}</span></div>
-          <div class="earn"><b>Total Earned</b><span>₹${Math.round(earn).toLocaleString('en-IN')}</span></div>
-        </div>
-      </div>
-      <div class="order-actions">
-        <span class="chip ${o.status.toLowerCase()}">${esc(o.status)}</span>
-        <select class="pill-input" style="padding:6px 12px;font-size:12px;" onchange="updateOrderStatus('${o.id}', this.value)">
-          <option value="Ordered" ${o.status==='Ordered'?'selected':''}>Ordered</option>
-          <option value="Shipped" ${o.status==='Shipped'?'selected':''}>Shipped</option>
-          <option value="Delivered" ${o.status==='Delivered'?'selected':''}>Delivered</option>
-        </select>
-        <button class="btn-ghost" style="padding:4px 10px;font-size:11px;" onclick="deleteOrder('${o.id}')">Delete</button>
-      </div>
-    </div>
-  `;
-}
-
-function setFilter(f){
-  filter = f;
-  renderOrders();
-}
-
-function renderOrders(){
-  const search = document.getElementById("orderSearch").value.toLowerCase();
-  const sort = document.getElementById("orderSort").value;
-  
-  let list = orders.filter(o => {
-    const matchF = filter === "all" || o.status === filter;
-    const matchS = !search || o.item_name.toLowerCase().includes(search) || o.order_id.toLowerCase().includes(search);
-    return matchF && matchS;
-  });
-
-  if (sort === "newest") list.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
-  if (sort === "oldest") list.sort((a,b) => new Date(a.created_at) - new Date(b.created_at));
-  if (sort === "value") list.sort((a,b) => Number(b.amount) - Number(a.amount));
-  if (sort === "earning") list.sort((a,b) => Number(b.commission) - Number(a.commission));
-
-  document.getElementById("orderList").innerHTML = list.length ? list.map(o => renderOrderCardHTML(o)).join('') : '<div class="empty"><div class="big">📦</div>No matching orders found.</div>';
-}
-
-function renderPipeline(){
-  const stages = ["Ordered", "Shipped", "Delivered"];
-  document.getElementById("pipelineBoard").innerHTML = `
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-      ${stages.map(stage => {
-        const stageOrders = orders.filter(o => o.status === stage);
-        return `
-          <div class="glass pipe-col" style="padding:18px;">
-            <h3 style="margin-bottom:14px;display:flex;justify-content:space-between;">
-              <span>${stage}</span>
-              <span style="color:var(--muted);font-size:13px;">${stageOrders.length}</span>
-            </h3>
-            <div style="display:grid;gap:12px;">
-              ${stageOrders.map(o => `
-                <div class="glass-lite pipe-card" style="padding:14px;">
-                  <b>${esc(o.item_name)}</b>
-                  <div style="font-size:12px;color:var(--muted);margin-top:4px;">₹${Number(o.amount).toLocaleString('en-IN')} • ${esc(o.platform)}</div>
-                </div>
-              `).join('') || '<div style="font-size:12px;color:var(--muted)">No items</div>'}
-            </div>
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-}
-
-function populateBanks(){
-  const sel = document.getElementById("fBank");
-  if (sel.options.length <= 1) {
-    sel.innerHTML = INDIAN_BANKS.map(b => `<option value="${esc(b)}">${esc(b)}</option>`).join('');
-  }
-}
-
-let platChoice = "Yaper";
-function pickPlat(btn){
-  document.querySelectorAll("#platSeg button").forEach(b => b.classList.remove("on"));
-  btn.classList.add("on");
-  platChoice = btn.getAttribute("data-v");
-}
-
-function previewCalc(){
-  const amt = Number(document.getElementById("fAmount").value||0);
-  const comm = Number(document.getElementById("fCommission").value||0);
-  const cbPct = Number(document.getElementById("fCashback").value||0);
-  const cbVal = (amt * cbPct) / 100;
-  const totalEarn = comm + cbVal;
-  
-  document.getElementById("fSold").value = amt ? `₹${amt.toLocaleString('en-IN')}` : '';
-  const prev = document.getElementById("calcPreview");
-  if (amt > 0) {
-    prev.style.display = "block";
-    prev.innerHTML = `Purchase: <b>₹${amt.toLocaleString('en-IN')}</b> | Commission: <b>₹${comm}</b> | Cashback (${cbPct}%): <b>₹${Math.round(cbVal)}</b><br><span class="earnline">Estimated Net Earning: ₹${Math.round(totalEarn).toLocaleString('en-IN')}</span>`;
-  } else {
-    prev.style.display = "none";
-  }
-}
-
-async function saveOrder(){
-  const item_name = document.getElementById("fItem").value.trim();
-  const order_id = document.getElementById("fOrderId").value.trim();
-  const amount = Number(document.getElementById("fAmount").value||0);
-  const commission = Number(document.getElementById("fCommission").value||0);
-  const cashback_pct = Number(document.getElementById("fCashback").value||0);
-  const bank_name = document.getElementById("fBank").value;
-  const pay_type = document.getElementById("fPayType").value;
-  const last4 = document.getElementById("fLast4").value.trim();
-
-  if (!item_name || !order_id || amount <= 0) {
-    return toast("Missing fields", "Item name, Order ID, and valid Purchase amount are required.", true);
-  }
-
-  const btn = document.getElementById("saveOrderBtn");
-  btn.disabled = true; btn.textContent = "Saving...";
-
-  const { data, error } = await sb.from("orders").insert([{
-    user_id: currentUser.id,
-    platform: platChoice,
-    item_name,
-    order_id,
-    amount,
-    commission,
-    cashback_pct,
-    bank_name,
-    pay_type,
-    card_last4: last4,
-    status: "Ordered"
-  }]).select();
-
-  btn.disabled = false; btn.textContent = "Save order — status: Ordered";
-
-  if (error) {
-    toast("Failed to save order", error.message, true);
-  } else {
-    toast("Order saved!", `${item_name} added to your tracker.`);
-    resetForm();
-    await loadOrders();
-    showTab("orders");
-  }
-}
-
-function resetForm(){
-  document.getElementById("fItem").value = "";
-  document.getElementById("fOrderId").value = "";
-  document.getElementById("fAmount").value = "";
-  document.getElementById("fCommission").value = "";
-  document.getElementById("fCashback").value = "";
-  document.getElementById("fLast4").value = "";
-  document.getElementById("fSold").value = "";
-  document.getElementById("calcPreview").style.display = "none";
-}
-
-async function updateOrderStatus(id, newStatus){
-  const { error } = await sb.from("orders").update({ status: newStatus }).eq("id", id);
-  if (error) toast("Update failed", error.message, true);
-  else {
-    toast("Status updated", `Order marked as ${newStatus}`);
-    await loadOrders();
-  }
-}
-
-async function deleteOrder(id){
-  if (!confirm("Are you sure you want to delete this order?")) return;
-  const { error } = await sb.from("orders").delete().eq("id", id);
-  if (error) toast("Delete failed", error.message, true);
-  else {
-    toast("Order deleted", "Order removed from database.");
-    await loadOrders();
-  }
-}
-
-function renderEarnings(){
-  const totalEarn = orders.reduce((s,o) => s + (Number(o.commission||0) + (Number(o.amount||0)*Number(o.cashback_pct||0)/100)), 0);
-  const totalSpend = orders.reduce((s,o) => s + Number(o.amount||0), 0);
-
-  document.getElementById("earnStats").innerHTML = `
-    <div class="glass stat"><div class="k">Total Net Earning</div><div class="v" style="color:var(--good)">₹${Math.round(totalEarn).toLocaleString('en-IN')}</div></div>
-    <div class="glass stat"><div class="k">Total Purchase Spend</div><div class="v">₹${totalSpend.toLocaleString('en-IN')}</div></div>
-  `;
-
-  // Render Chart.js
-  const ctxMonthly = document.getElementById("chartMonthly");
-  if (ctxMonthly) {
-    if (chartMonthly) chartMonthly.destroy();
-    chartMonthly = new Chart(ctxMonthly, {
-      type: 'bar',
-      data: {
-        labels: ['Recent Orders'],
-        datasets: [{ label: 'Earnings (₹)', data: [totalEarn], backgroundColor: '#6c63ff', borderRadius: 8 }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-  }
-}
-
-function renderUpdates(){
-  document.getElementById("updateList").innerHTML = updates.length ? updates.map(u => `
-    <div class="glass log-item">
-      <div class="ver">${esc(u.version||'v1.0')}</div>
-      <div>
-        <h4>${esc(u.title)}</h4>
-        <p>${esc(u.description)}</p>
-        <time>${new Date(u.released_at).toLocaleDateString()}</time>
-      </div>
-    </div>
-  `).join('') : '<div class="empty">No app updates posted yet.</div>';
-}
-
-/* ================= DIRECT NVIDIA API CHAT ASSISTANT ================= */
-async function sendChat(){
-  const input = document.getElementById("chatInput");
-  const msg = input.value.trim();
-  if (!msg) return;
-  
-  input.value = "";
-  addChatMsg("user", msg);
-  chatHistory.push({ role: "user", content: msg });
-
-  const aiBubble = addChatMsg("ai", "");
-  let full = '';
-  let reasoningText = '';
-
-  const apiKey = "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";
-  const models = [
-    "nvidia/nemotron-3-super-120b-a12b",
-    "meta/llama-3.3-70b-instruct",
-    "mistralai/mistral-large-2-instruct"
-  ];
-
-  const sys = `You are DealDesk AI Assistant. Current dealer orders: ${orders.length} total. Be helpful, concise, and accurate.`;
-
-  try {
-    let r = null;
-    let lastErr = "";
-
-    for (const model of models) {
-      const isNemotron = model.includes("nemotron");
-      const payload = {
-        model,
-        messages: [{ role: 'system', content: sys }, ...chatHistory],
-        temperature: 1,
-        top_p: 0.95,
-        max_tokens: 4096,
-        stream: true,
-        ...(isNemotron ? { extra_body: { chat_template_kwargs: { enable_thinking: true }, reasoning_budget: 4096 } } : {})
-      };
-
-      try {
-        r = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'Accept': 'text/event-stream'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (r && r.ok) break;
-        if (r) lastErr = await r.text();
-        r = null;
-      } catch(e) {
-        lastErr = e.message;
-      }
-    }
-
-    if (!r || !r.ok) {
-      throw new Error(lastErr || "NVIDIA API request failed.");
-    }
-
-    const reader = r.body.getReader(), dec = new TextDecoder();
-    let buffer = '';
-
-    while(true){
-      const { done, value } = await reader.read();
-      if (done) break;
-      buffer += dec.decode(value, { stream: true });
-      const lines = buffer.split('\n');
-      buffer = lines.pop() || '';
-
-      for (const line of lines) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith('data:') || trimmed.includes('[DONE]')) continue;
-        try {
-          const d = JSON.parse(trimmed.slice(5).trim());
-          const delta = d.choices?.[0]?.delta;
-          if (!delta) continue;
-
-          const rContent = delta.reasoning_content || delta.reasoning;
-          if (rContent) reasoningText += rContent;
-
-          const dt = delta.content || '';
-          if (dt) full += dt;
-
-          if (aiBubble) {
-            let html = '';
-            if (reasoningText) {
-              html += `<details style="margin-bottom:6px;opacity:0.8;font-size:0.85em;"><summary style="cursor:pointer;">🧠 Thinking process...</summary><div style="padding:6px;background:rgba(0,0,0,0.05);border-radius:6px;margin-top:4px;">${esc(reasoningText)}</div></details>`;
-            }
-            html += esc(full);
-            aiBubble.innerHTML = html;
-            const log = document.getElementById("chatLog");
-            log.scrollTop = log.scrollHeight;
-          }
-        } catch(e){}
-      }
-    }
-
-    chatHistory.push({ role: "assistant", content: full });
-  } catch(e) {
-    if (aiBubble) aiBubble.innerHTML = `⚠️ <b>Assistant unavailable:</b> ${esc(e.message)}`;
-  }
-}
-
-function quickAsk(q){
-  document.getElementById("chatInput").value = q;
-  sendChat();
-}
-
-function addChatMsg(role, text){
-  const log = document.getElementById("chatLog");
-  const d = document.createElement("div");
-  d.className = `msg ${role}`;
-  d.textContent = text;
-  log.appendChild(d);
-  log.scrollTop = log.scrollHeight;
-  return d;
-}
-
-/* ================= MODAL & TOAST ================= */
-function openModal(html){
-  document.getElementById("modalBox").innerHTML = html;
-  document.getElementById("modalWrap").classList.add("open");
-}
-function closeModal(){
-  document.getElementById("modalWrap").classList.remove("open");
-}
-function toast(title, msg, isErr=false){
-  const wrap = document.getElementById("toastWrap");
-  const t = document.createElement("div");
-  t.className = `glass toast ${isErr?'err':''}`;
-  t.innerHTML = `<b>${esc(title)}</b><div>${esc(msg)}</div>`;
-  wrap.appendChild(t);
-  setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 300); }, 3500);
-}
-
-function toggleTheme(){
-  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-  document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
-  document.getElementById("themeToggle").querySelector(".theme-label").textContent = isDark ? "Dark mode" : "Light mode";
-}
-
-/* ================= START APP ================= */
-window.addEventListener("DOMContentLoaded", boot);
+/* ================= INIT ================= */
+fillBanks();
+boot();
 </script>
 </body>
 </html>
