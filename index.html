@@ -285,6 +285,27 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 @media(max-width:760px){
   #appView{padding:18px 14px 104px}.topbar{position:static;width:auto;height:auto;margin-bottom:20px;padding:16px 18px;flex-direction:row;align-items:center}.topbar .logo{margin:0}.topbar .nav,.topbar .userbox small,.topbar .userbox .btn-ghost{display:none}.topbar .userbox{display:flex;margin:0 0 0 auto}.grid-stats{grid-template-columns:repeat(2,1fr);gap:12px}.stat{padding:16px 14px}.stat .v{font-size:21px}.page-head h2{font-size:26px}.filter-tools{width:100%}.filter-tools .pill-input{flex:1;min-width:150px}.filter-scroll{width:100%}.order-list{grid-template-columns:1fr}.order-card{min-height:0}.mobile-tabs{position:fixed;display:flex;left:12px;right:12px;bottom:12px;z-index:44;padding:9px;justify-content:space-around;border-radius:22px}.mobile-tabs button{background:transparent;color:var(--muted);padding:8px 9px;border-radius:14px;font-size:10px;display:grid;gap:3px;place-items:center}.mobile-tabs button span{font-size:19px}.mobile-tabs button.active{color:var(--accent);box-shadow:inset 3px 3px 6px var(--neo-lo),inset -3px -3px 6px #fff}.fab{right:18px;bottom:91px;width:56px;height:56px}.modal,.modal.wide{padding:24px 18px}.form-grid{grid-template-columns:1fr}.charts{grid-template-columns:1fr}}
 </style>
+<style>
+/* DealDesk modern operations refresh */
+:root{--paper:#f6f8fc;--surface:#fff;--text:#172033;--muted:#6b778c;--accent:#4f46e5;--accent-2:#7c3aed;--line:#e7ebf2}
+body{background:radial-gradient(circle at 90% 0%,#eef0ff 0,transparent 32%),var(--paper);color:var(--text)}
+.glass,.glass-lite{background:rgba(255,255,255,.9);border:1px solid var(--line);box-shadow:0 8px 28px rgba(31,41,55,.06);border-radius:20px}
+#appView{padding:30px 38px 110px 290px;max-width:1700px}
+.topbar{background:#111827;border-radius:24px;box-shadow:0 14px 34px rgba(17,24,39,.2);border:0}
+.topbar .logo-name{color:#fff}.topbar .logo-mark{color:#a5b4fc}.topbar .logo{padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav button{color:#aab3c4;border-radius:12px}.nav button:hover{background:#1f2937;color:#fff}.nav button.active{background:#6366f1;color:#fff;box-shadow:0 7px 18px rgba(99,102,241,.3)}
+.workspace-label{display:block;color:#94a3b8;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:-24px 10px 24px}
+.page-head{margin-bottom:28px}.page-head h2{font-size:32px;font-weight:750;letter-spacing:-.04em}.page-head p{color:var(--muted)}
+.stat{border-radius:18px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(31,41,55,.05)}.stat .k{color:var(--muted)}.stat .v{color:var(--text)}
+.overview-hero .welcome-panel{background:linear-gradient(135deg,#1e1b4b,#4338ca);border:0;box-shadow:0 16px 34px rgba(67,56,202,.2)}
+.btn-primary{background:linear-gradient(135deg,#4f46e5,#7c3aed);box-shadow:0 8px 18px rgba(79,70,229,.2)}
+.btn-ghost{border:1px solid var(--line);box-shadow:0 2px 5px rgba(31,41,55,.04)}
+.order-card,.overview-card,.pipe-card,.chart-card,.form-card,.chat-shell{border:1px solid var(--line);box-shadow:0 6px 20px rgba(31,41,55,.05)}
+.order-card:hover,.overview-card:hover,.pipe-card:hover{transform:translateY(-2px)}
+.filter-tools .pill-input,.pill-input{border:1px solid #dfe5ef;box-shadow:0 1px 2px rgba(31,41,55,.03);background:#fff}
+.mobile-tabs{border:1px solid var(--line)}
+@media(max-width:860px){#appView{padding:18px 14px 110px}.page-head h2{font-size:28px}}
+</style>
 </head>
 <body>
 
@@ -356,6 +377,7 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 <div id="appView">
   <div class="glass topbar">
     <div class="logo"><span class="logo-mark">//</span><span class="logo-name">DealDesk</span></div>
+    <span class="workspace-label">Operations workspace</span>
     <nav class="nav" id="navBar">
       <button data-tab="overview" class="active" onclick="showTab('overview')">Overview</button>
       <button data-tab="orders" onclick="showTab('orders')">All orders</button>
