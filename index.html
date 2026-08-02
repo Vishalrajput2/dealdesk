@@ -506,6 +506,13 @@ const HARD_SUPABASE_URL  = "https://pdjbktudzniulcvjtprp.supabase.co";
 const HARD_SUPABASE_KEY  = "sb_publishable_H20fA5-v-OuCEib4UjoKcQ_zRL1V3CJ";
 const APP_VERSION = "1.0.0";
 const ALLOWED_ADMIN_EMAIL = "vrajput885@gmail.com";
+const MODEL_BY_AGENT = {
+  TechnologyExpert: "nvidia/nemotron-3-nano-30b-a3b",
+  CustomerSupportExpert: "nvidia/nemotron-mini-4b-instruct",
+  ScienceExpert: "meta/llama-3.2-3b-instruct",
+  HistoryExpert: "meta/llama-3.2-3b-instruct",
+  LegalExpert: "nvidia/nemotron-3-nano-30b-a3b"
+};
 
 const INDIAN_BANKS = [
 "State Bank of India (SBI)","HDFC Bank","ICICI Bank","Axis Bank","Kotak Mahindra Bank","Punjab National Bank (PNB)",
@@ -1116,19 +1123,16 @@ function quickAsk(q){ document.getElementById("chatInput").value = q; sendChat()
 function openAiSettings() {
   const cfg = JSON.parse(localStorage.getItem("dealdesk_ai_cfg") || "{}");
   openModal(`<h3>AI Settings</h3>
-  <div class="m-sub">Select your AI model and API key. These are saved locally in your browser and sent to your edge function.</div>
+  <div class="m-sub">Choose the model routing for DealDesk. The NVIDIA API key is kept securely on the server.</div>
   <label class="field">Model name</label>
   <input id="aiModel" class="pill-input" placeholder="e.g. meta/llama-3.1-8b-instruct" value="${cfg.model || ''}">
-  <label class="field" style="margin-top:14px">API Key</label>
-  <input id="aiKey" type="password" class="pill-input" placeholder="sk-..." value="${cfg.key || ''}">
   <div class="m-actions"><button class="btn-ghost" onclick="closeModal()">Cancel</button>
   <button class="btn-primary" onclick="saveAiSettings()">Save</button></div>`);
 }
 
 function saveAiSettings() {
   const model = document.getElementById("aiModel").value.trim();
-  const key = document.getElementById("aiKey").value.trim();
-  localStorage.setItem("dealdesk_ai_cfg", JSON.stringify({ model, key }));
+  localStorage.setItem("dealdesk_ai_cfg", JSON.stringify({ model }));
   closeModal();
   toast("AI settings saved", "Your model and API key have been updated.");
 }
@@ -1148,11 +1152,11 @@ async function sendChat(){
     const aiCfg = JSON.parse(localStorage.getItem("dealdesk_ai_cfg") || "{}");
     const expertResults = await Promise.all(selectedAgents.map(async agent => {
       const profile = EXPERT_AGENTS[agent];
-      const res = await fetch(cfg.url + "/functions/v1/ai-assistant", {
+      const res = await fetch("/api/ai-assistant", {
         method: "POST",
-        headers: { "Content-Type":"application/json", "Authorization": "Bearer " + session.access_token, "apikey": cfg.key },
+        headers: { "Content-Type":"application/json", "Authorization": "Bearer " + session.access_token },
         body: JSON.stringify({
-          model: aiCfg.model || null,
+          model: aiCfg.model || MODEL_BY_AGENT[agent],
           messages: [{ role:"system", content: expertSystemPrompt(agent, profile) }, ...chatHistory.slice(-8)]
         })
       });
