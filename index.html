@@ -36,6 +36,7 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
 button{font-family:inherit;cursor:pointer;border:none}
 input,select,textarea{font-family:inherit}
 ::placeholder{color:rgba(255,255,255,.35)}
+#phoneStep,#otpStep{display:none!important}
 
 /* ---------- glass primitives ---------- */
 .glass{
@@ -504,6 +505,7 @@ label.field,.page-head p,.stat .k,.userbox small,.order-card .meta span,.log-ite
 const HARD_SUPABASE_URL  = "https://pdjbktudzniulcvjtprp.supabase.co";
 const HARD_SUPABASE_KEY  = "sb_publishable_H20fA5-v-OuCEib4UjoKcQ_zRL1V3CJ";
 const APP_VERSION = "1.0.0";
+const ALLOWED_ADMIN_EMAIL = "vrajput885@gmail.com";
 
 const INDIAN_BANKS = [
 "State Bank of India (SBI)","HDFC Bank","ICICI Bank","Axis Bank","Kotak Mahindra Bank","Punjab National Bank (PNB)",
@@ -560,6 +562,14 @@ function show(id){
 /* ================= UPDATED PROFILE & SESSION ================= */
 async function handleSession(session){
   if (session && session.user){
+    const email = (session.user.email || "").toLowerCase();
+    if (email !== ALLOWED_ADMIN_EMAIL){
+      await sb.auth.signOut();
+      currentUser = null;
+      show("authView");
+      toast("Access denied", "Only the approved admin email can access DealDesk.", true);
+      return;
+    }
     if (currentUser && currentUser.id === session.user.id) return; // ignore token refreshes
     currentUser = session.user;
     show("appView");
