@@ -1167,7 +1167,10 @@ async function sendChat(){
     thinking.remove();
     const output={selected_agents:selectedAgents,reasoning:{},final_answer:{}};
     expertResults.forEach(({agent,result})=>{output.reasoning[agent]=result.reasoning;output.final_answer[agent]=result.final_answer;});
-    const reply = JSON.stringify(output,null,2);
+    const reply = Object.values(output.final_answer)
+      .filter(Boolean)
+      .join("\n\n")
+      .replace(/^\s*[-*]\s*/gm, "• ");
     addMsg("ai", reply);
     chatHistory.push({ role:"assistant", content: reply });
   }catch(err){
