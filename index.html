@@ -951,6 +951,9 @@ body{
   [data-theme="dark"] select.pill-input{color:#eef2f8;background-color:#111722;color-scheme:dark}
   [data-theme="dark"] select.pill-input option{background:#1b2434;color:#eef2f8}
   [data-theme="dark"] select.pill-input option:checked{background:#635bff;color:#fff}
+  /* Explicit high-contrast palette for native dropdown menus in both themes. */
+  select.pill-input option{background:#26324a !important;color:#ffffff !important}
+  select.pill-input option:checked{background:#635bff !important;color:#ffffff !important}
   .topbar{background:linear-gradient(180deg,#ffffff,#f4f7fd);border:1px solid var(--g-line);box-shadow:0 6px 20px -10px rgba(16,24,40,.24),inset 0 1px 0 #fff;border-radius:20px}
   .topbar .logo-name{color:var(--text)}
   [data-theme="dark"] .topbar{background:linear-gradient(180deg,#1b2131,#141a27);border-color:#2a3343}
