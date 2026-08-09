@@ -687,6 +687,234 @@ body{background:var(--paper)}
 @media(max-width:1050px){.overview-orders{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:repeat(4,260px)}}
 @media(max-width:760px){.topbar{background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(16,24,40,.06)}.topbar .logo-name{color:var(--text)}.overview-hero{grid-template-columns:1fr}.overview-orders{grid-template-columns:1fr}.order-card{grid-template-columns:1fr}.money-row{display:grid;grid-template-columns:1fr 1fr}.money-row div,.money-row div:first-child{border-left:0;border-top:1px solid var(--line);padding:10px 0}.pipeline{grid-template-columns:repeat(4,82vw)}.app-credit{position:static;width:auto;margin:26px auto 6px;color:#7f8999}.theme-toggle{width:42px;height:42px;padding:0;margin:0}.theme-toggle .theme-label{display:none}[data-theme="dark"] .topbar{background:#151b27}[data-theme="dark"] .topbar .logo-name{color:#fff}}
 </style>
+<style>
+/* ========== DealDesk 3.1 · premium 3D glossy ========== */
+/* Visual layer only. Adds depth, specular gloss and hover parallax.
+   Layout, spacing, responsive rules and all JS behaviour are inherited untouched. */
+:root{
+  --g-ease:cubic-bezier(.22,.68,.28,1);
+  --g-r:20px;
+  --g-surface:linear-gradient(168deg,#ffffff 0%,#fdfdff 40%,#f2f5fd 100%);
+  --g-line:#dfe5f2;
+  --g-sheen:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.45) 20%,rgba(255,255,255,.06) 45%,rgba(255,255,255,0) 62%);
+  --g-edge:inset 0 1px 0 rgba(255,255,255,1);
+  --g-lift:0 1px 2px rgba(16,24,40,.05),0 10px 20px -10px rgba(16,24,40,.18),0 28px 50px -28px rgba(16,24,40,.30);
+  --g-lift-hi:0 2px 5px rgba(16,24,40,.07),0 22px 38px -14px rgba(99,91,255,.24),0 48px 78px -36px rgba(16,24,40,.44);
+  --g-accent:#635bff;--g-accent-2:#8b5cf6;--g-accent-3:#00c2ff;
+}
+body{
+  background:
+    radial-gradient(1150px 600px at 88% -10%,#e8ebff 0%,transparent 58%),
+    radial-gradient(880px 500px at 4% 2%,#e4f5ff 0%,transparent 54%),
+    var(--paper);
+  background-attachment:fixed;
+}
+
+/* --- depth context so translateZ / rotate actually render --- */
+#appView,.grid-stats,.order-list,.overview-orders,.overview-hero,.pipe-list,.charts{perspective:1500px}
+
+/* --- glossy card surface (topbar / mobile-tabs / dots-menu excluded: they are positioned) --- */
+.glass:not(.topbar):not(.mobile-tabs):not(.dots-menu),.glass-lite{
+  position:relative;isolation:isolate;
+  border-radius:var(--g-r);
+  background:var(--g-surface);
+  border:1px solid var(--g-line);
+  box-shadow:var(--g-lift),var(--g-edge);
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+}
+.glass:not(.topbar):not(.mobile-tabs):not(.dots-menu)::before,.glass-lite::before{
+  content:"";display:block;position:absolute;inset:0;z-index:-1;
+  border-radius:inherit;pointer-events:none;
+  background:var(--g-sheen);
+}
+
+/* --- hover parallax: pointer devices only, so touch never sticks --- */
+@media (hover:hover) and (pointer:fine){
+  .stat,.order-card,.overview-card,.pipe-card,.chart-card,.log-item{
+    transition:transform .42s var(--g-ease),box-shadow .42s var(--g-ease);
+    will-change:transform;
+  }
+  .stat:hover,.overview-card:hover,.pipe-card:hover,.log-item:hover{
+    transform:translate3d(0,-6px,0) rotateX(3.2deg) scale(1.012);
+    box-shadow:var(--g-lift-hi),var(--g-edge);
+  }
+  .order-card:hover,.chart-card:hover{
+    transform:translate3d(0,-4px,0) rotateX(1.8deg);
+    box-shadow:var(--g-lift-hi),var(--g-edge);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .stat:hover,.order-card:hover,.overview-card:hover,.pipe-card:hover,.chart-card:hover,.log-item:hover{transform:none}
+}
+
+/* --- stats --- */
+.stat{border-radius:18px;overflow:hidden}
+.stat::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--g-accent),var(--g-accent-2) 55%,var(--g-accent-3));
+  opacity:.85;
+}
+.stat .v{text-shadow:0 1px 0 rgba(255,255,255,.9)}
+
+/* --- sidebar / topbar: dark glossy slab --- */
+.topbar{
+  background:linear-gradient(168deg,#1e2436 0%,#141926 52%,#0e121d 100%);
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:0 2px 6px rgba(9,13,21,.28),0 26px 54px -22px rgba(9,13,21,.62),inset 0 1px 0 rgba(255,255,255,.12);
+  border-radius:24px;
+}
+.nav button{border-radius:12px;transition:background .22s var(--g-ease),color .22s var(--g-ease)}
+.nav button.active{
+  background:linear-gradient(180deg,#7c74ff,#5b52f5);
+  box-shadow:0 6px 16px -6px rgba(99,91,255,.7),inset 0 1px 0 rgba(255,255,255,.34);
+}
+
+/* --- buttons: gradient body + sweeping specular --- */
+.btn-primary{
+  position:relative;overflow:hidden;border-radius:13px;
+  background:linear-gradient(180deg,#7c74ff 0%,#635bff 52%,#544bf0 100%);
+  box-shadow:0 1px 2px rgba(16,24,40,.14),0 10px 20px -8px rgba(99,91,255,.55),inset 0 1px 0 rgba(255,255,255,.38);
+  transition:transform .2s var(--g-ease),box-shadow .28s var(--g-ease);
+}
+.btn-primary::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.38) 47%,transparent 63%);
+  transform:translateX(-130%);transition:transform .75s var(--g-ease);
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 1px 2px rgba(16,24,40,.14),0 16px 28px -10px rgba(99,91,255,.62),inset 0 1px 0 rgba(255,255,255,.42)}
+.btn-primary:hover::after{transform:translateX(130%)}
+.btn-primary:active{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.btn-primary::after{display:none}}
+
+.btn-ghost,.btn-dark{
+  border-radius:12px;
+  background:linear-gradient(180deg,#ffffff,#f3f6fc);
+  border:1px solid var(--g-line);
+  box-shadow:0 1px 2px rgba(16,24,40,.06),inset 0 1px 0 rgba(255,255,255,1);
+}
+.btn-ghost:hover,.btn-dark:hover{background:linear-gradient(180deg,#ffffff,#eaeffa);box-shadow:0 3px 8px -2px rgba(16,24,40,.12),inset 0 1px 0 rgba(255,255,255,1)}
+.topbar .btn-ghost{background:linear-gradient(180deg,#252c3f,#1a2030);border-color:#333c50;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.10)}
+.topbar .btn-ghost:hover{background:linear-gradient(180deg,#2e3648,#212838)}
+
+.icon-btn{border-radius:11px;background:linear-gradient(180deg,#ffffff,#f2f5fc);border:1px solid var(--g-line);box-shadow:0 1px 2px rgba(16,24,40,.06),inset 0 1px 0 #fff}
+.icon-btn:hover{box-shadow:0 4px 10px -3px rgba(16,24,40,.16),inset 0 1px 0 #fff}
+
+/* --- inputs: inset well --- */
+.pill-input,select.pill-input,textarea.pill-input{
+  border-radius:12px;
+  background:linear-gradient(180deg,#f7f9fd,#ffffff);
+  border:1px solid var(--g-line);
+  box-shadow:inset 0 2px 4px rgba(16,24,40,.05),0 1px 0 rgba(255,255,255,.9);
+  transition:border-color .2s var(--g-ease),box-shadow .2s var(--g-ease);
+}
+.pill-input:focus,select.pill-input:focus,textarea.pill-input:focus{
+  border-color:var(--g-accent);
+  box-shadow:inset 0 2px 4px rgba(16,24,40,.04),0 0 0 4px rgba(99,91,255,.16);
+}
+
+/* --- segmented control --- */
+.seg{border-radius:13px;background:linear-gradient(180deg,#eef1f8,#e6eaf4);border:1px solid #dde3ef;box-shadow:inset 0 2px 4px rgba(16,24,40,.06)}
+.seg button.on{background:linear-gradient(180deg,#ffffff,#f7f9ff);box-shadow:0 2px 6px rgba(16,24,40,.14),inset 0 1px 0 #fff;border-radius:10px}
+
+/* --- order + pipeline cards --- */
+.order-card{border-radius:20px}
+.order-card .meta span{background:linear-gradient(180deg,#f7f9fd,#eef2fa);border:1px solid #e3e9f4;box-shadow:inset 0 1px 0 #fff}
+.pipe-col{background:linear-gradient(180deg,rgba(232,237,247,.75),rgba(240,243,250,.5));border:1px solid #e0e6f1;border-radius:20px;box-shadow:inset 0 2px 6px rgba(16,24,40,.05)}
+.pipe-count{background:linear-gradient(180deg,#fff,#f3f6fc);border:1px solid var(--g-line);box-shadow:inset 0 1px 0 #fff}
+.pipe-card{border-radius:15px}
+
+/* --- welcome panel keeps its dark identity, now glossy --- */
+.welcome-panel{
+  background:linear-gradient(152deg,#232a42 0%,#1a2035 46%,#131829 100%);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 2px 6px rgba(9,13,21,.24),0 30px 60px -26px rgba(9,13,21,.55),inset 0 1px 0 rgba(255,255,255,.14);
+}
+.welcome-panel::before{background:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.03) 34%,rgba(255,255,255,0) 62%)}
+
+/* --- floating action button --- */
+.fab{
+  background:linear-gradient(180deg,#7c74ff,#5b52f5);
+  box-shadow:0 10px 24px -8px rgba(99,91,255,.65),0 22px 44px -20px rgba(16,24,40,.4),inset 0 1px 0 rgba(255,255,255,.4);
+  border-radius:19px;
+  transition:transform .24s var(--g-ease),box-shadow .24s var(--g-ease);
+}
+.fab:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 32px -8px rgba(99,91,255,.72),0 28px 54px -20px rgba(16,24,40,.46),inset 0 1px 0 rgba(255,255,255,.44)}
+
+/* --- mobile tab bar --- */
+.mobile-tabs{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(244,247,253,.94));
+  border:1px solid var(--g-line);
+  box-shadow:0 -1px 0 rgba(255,255,255,1) inset,0 18px 40px -14px rgba(16,24,40,.32);
+  backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
+}
+.mobile-tabs button.active{background:linear-gradient(180deg,#efedff,#e5e2ff);color:var(--g-accent);box-shadow:inset 0 1px 0 #fff}
+
+/* --- modal --- */
+.modal{border-radius:24px;box-shadow:0 40px 90px -30px rgba(16,24,40,.55),var(--g-edge)}
+
+/* --- charts --- */
+.chart-card{border-radius:22px}
+
+/* ============ DARK THEME ============ */
+[data-theme="dark"]{
+  --g-surface:linear-gradient(168deg,#1d2437 0%,#181e2e 46%,#131826 100%);
+  --g-line:rgba(255,255,255,.075);
+  --g-sheen:linear-gradient(180deg,rgba(255,255,255,.11) 0%,rgba(255,255,255,.035) 26%,rgba(255,255,255,0) 58%);
+  --g-edge:inset 0 1px 0 rgba(255,255,255,.11);
+  --g-lift:0 1px 2px rgba(0,0,0,.34),0 12px 24px -12px rgba(0,0,0,.5),0 32px 58px -30px rgba(0,0,0,.72);
+  --g-lift-hi:0 2px 5px rgba(0,0,0,.4),0 24px 42px -16px rgba(99,91,255,.34),0 52px 84px -38px rgba(0,0,0,.8);
+}
+[data-theme="dark"] body{
+  background:
+    radial-gradient(1150px 600px at 88% -10%,#1b1f3d 0%,transparent 58%),
+    radial-gradient(880px 500px at 4% 2%,#10243a 0%,transparent 54%),
+    #0b0e18;
+}
+[data-theme="dark"] .glass:not(.topbar):not(.mobile-tabs):not(.dots-menu),[data-theme="dark"] .glass-lite{
+  background:var(--g-surface);border-color:var(--g-line);
+  box-shadow:var(--g-lift),var(--g-edge);color:var(--text);
+}
+[data-theme="dark"] .topbar{
+  background:linear-gradient(168deg,#161b2a 0%,#101521 52%,#0a0e18 100%);
+  border-color:rgba(255,255,255,.06);
+}
+[data-theme="dark"] .btn-ghost,[data-theme="dark"] .btn-dark,[data-theme="dark"] .icon-btn{
+  background:linear-gradient(180deg,#1d2434,#161c29);border-color:#2c3547;color:var(--text);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+[data-theme="dark"] .btn-ghost:hover,[data-theme="dark"] .btn-dark:hover,[data-theme="dark"] .icon-btn:hover{background:linear-gradient(180deg,#252d40,#1b2231)}
+[data-theme="dark"] .pill-input,[data-theme="dark"] select.pill-input,[data-theme="dark"] textarea.pill-input{
+  background:linear-gradient(180deg,#10151f,#161c28);border-color:#2c3547;color:var(--text);
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.4);
+}
+[data-theme="dark"] .pill-input:focus,[data-theme="dark"] select.pill-input:focus,[data-theme="dark"] textarea.pill-input:focus{
+  border-color:#8b85ff;box-shadow:inset 0 2px 5px rgba(0,0,0,.35),0 0 0 4px rgba(139,133,255,.22);
+}
+[data-theme="dark"] .seg{background:linear-gradient(180deg,#10151f,#161c28);border-color:#2a3343;box-shadow:inset 0 2px 5px rgba(0,0,0,.38)}
+[data-theme="dark"] .seg button.on{background:linear-gradient(180deg,#2b3348,#232a3c);color:#aca7ff;box-shadow:0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.09)}
+[data-theme="dark"] .order-card .meta span{background:linear-gradient(180deg,#212a3b,#1a2130);border-color:#2f394b;color:#b9c2d1;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+[data-theme="dark"] .pipe-col{background:linear-gradient(180deg,rgba(14,19,29,.7),rgba(19,25,37,.5));border-color:#242d3c;box-shadow:inset 0 2px 6px rgba(0,0,0,.34)}
+[data-theme="dark"] .pipe-count{background:linear-gradient(180deg,#212938,#191f2c);border-color:#2f394b;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+[data-theme="dark"] .welcome-panel{background:linear-gradient(152deg,#242b45 0%,#1a2034 46%,#111627 100%)}
+[data-theme="dark"] .mobile-tabs{
+  background:linear-gradient(180deg,rgba(23,29,43,.96),rgba(17,22,33,.94));
+  border-color:#2a3343;box-shadow:0 18px 40px -14px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);
+}
+[data-theme="dark"] .mobile-tabs button.active{background:linear-gradient(180deg,#2a2f52,#232845);color:#aca7ff}
+[data-theme="dark"] .modal{box-shadow:0 44px 96px -30px rgba(0,0,0,.85),var(--g-edge)}
+[data-theme="dark"] .stat .v{text-shadow:0 1px 0 rgba(0,0,0,.45)}
+[data-theme="dark"] .empty-pipe{border-color:#333d51}
+
+/* --- mobile: flatten depth, keep gloss (perf + touch) --- */
+@media(max-width:760px){
+  .glass:not(.topbar):not(.mobile-tabs):not(.dots-menu),.glass-lite{box-shadow:0 1px 2px rgba(16,24,40,.05),0 10px 22px -14px rgba(16,24,40,.3),var(--g-edge)}
+  [data-theme="dark"] .glass:not(.topbar):not(.mobile-tabs):not(.dots-menu),[data-theme="dark"] .glass-lite{box-shadow:0 1px 2px rgba(0,0,0,.35),0 12px 24px -16px rgba(0,0,0,.6),var(--g-edge)}
+  .topbar{background:linear-gradient(180deg,#ffffff,#f4f7fd);border:1px solid var(--g-line);box-shadow:0 6px 20px -10px rgba(16,24,40,.24),inset 0 1px 0 #fff;border-radius:20px}
+  .topbar .logo-name{color:var(--text)}
+  [data-theme="dark"] .topbar{background:linear-gradient(180deg,#1b2131,#141a27);border-color:#2a3343}
+  [data-theme="dark"] .topbar .logo-name{color:#fff}
+}
+</style>
 <script>
 let pendingPhone = null;
 function normPhone(raw){
@@ -755,7 +983,7 @@ function applyTheme(theme){
   btn.querySelector(".theme-label").textContent=theme==="dark"?"Light mode":"Dark mode";
   btn.setAttribute("aria-label",theme==="dark"?"Switch to light theme":"Switch to dark theme");
 }
-function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("dealdesk_theme",next);applyTheme(next);}
+function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("dealdesk_theme",next);applyTheme(next);if(chartMonthly||chartSpend){try{renderCharts()}catch(e){}}}
 applyTheme(localStorage.getItem("dealdesk_theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"));
 /* modal helper: returns a small api */
 function openModal(html, wide){
@@ -1103,26 +1331,43 @@ function renderCharts(){
     <div class="glass-lite stat"><div class="k">Earnings — last month</div><div class="v mono">${inr(byMonth[prevKey]||0)}</div></div>
     <div class="glass-lite stat"><div class="k">Total spending</div><div class="v mono">${inr(orders.reduce((s,o)=>s+Number(o.purchase_amount),0))}</div></div>`;
 
-  Chart.defaults.color = "rgba(255,255,255,.7)";
+  const _dk   = document.documentElement.dataset.theme === "dark";
+  const _txt  = _dk ? "rgba(238,242,248,.72)" : "rgba(105,115,134,.95)";
+  const _grid = _dk ? "rgba(255,255,255,.07)" : "rgba(16,24,40,.07)";
+  const _card = _dk ? "#1b2132" : "#ffffff";
+  Chart.defaults.color = _txt;
   Chart.defaults.font.family = "Inter";
   if (chartMonthly) chartMonthly.destroy();
-  chartMonthly = new Chart(document.getElementById("chartMonthly"), {
+  const _mc = document.getElementById("chartMonthly");
+  const _mx = _mc.getContext("2d");
+  const _bar = _mx.createLinearGradient(0, 0, 0, _mc.clientHeight || 300);
+  _bar.addColorStop(0, "#8b5cf6");
+  _bar.addColorStop(.55, "#635bff");
+  _bar.addColorStop(1, _dk ? "rgba(99,91,255,.30)" : "rgba(99,91,255,.22)");
+  chartMonthly = new Chart(_mc, {
     type: "bar",
     data: { labels: monthLabels, datasets: [{ label:"Earnings (₹)", data: months.map(m=>byMonth[m]),
-      backgroundColor: "rgba(255,195,160,.85)", hoverBackgroundColor:"#FF8FA3", borderRadius: 10, maxBarThickness: 46 }]},
-    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false},
-      tooltip:{ callbacks:{ label: c => " " + inr(c.parsed.y) } }},
-      scales:{ x:{ grid:{color:"rgba(255,255,255,.08)"} }, y:{ grid:{color:"rgba(255,255,255,.08)"}, ticks:{ callback:v=>"₹"+Number(v).toLocaleString("en-IN") } } } }
+      backgroundColor: _bar, hoverBackgroundColor:"#00c2ff", borderRadius: 12, borderSkipped:false, maxBarThickness: 46 }]},
+    options: { responsive:true, maintainAspectRatio:false,
+      animation:{ duration:700, easing:"easeOutQuart" },
+      plugins:{ legend:{display:false},
+        tooltip:{ backgroundColor:_dk?"#0d111b":"#172033", padding:12, cornerRadius:10, displayColors:false,
+          callbacks:{ label: c => " " + inr(c.parsed.y) } }},
+      scales:{ x:{ grid:{display:false}, border:{color:_grid} },
+        y:{ grid:{color:_grid}, border:{display:false}, ticks:{ callback:v=>"₹"+Number(v).toLocaleString("en-IN") } } } }
   });
   if (chartSpend) chartSpend.destroy();
-  const palette = ["#FFC3A0","#FF8FA3","#C59BFF","#9BC9FF","#7BE8A8","#FFD48A","#FF9BE0","#A0FFE6","#F6FF9B","#FFB4B4"];
+  const palette = ["#8B5CF6","#00C2FF","#FF6B6B","#FFD166","#34D399","#60A5FA","#F472B6","#2DD4BF","#A3E635","#FB923C"];
   chartSpend = new Chart(document.getElementById("chartSpend"), {
     type: "doughnut",
     data: { labels: spendKeys, datasets: [{ data: spendKeys.map(k=>bySpend[k]),
-      backgroundColor: spendKeys.map((_,i)=>palette[i%palette.length]), borderColor:"rgba(0,0,0,.25)", borderWidth:2 }]},
-    options: { responsive:true, maintainAspectRatio:false, cutout:"62%",
-      plugins:{ legend:{ position:"bottom", labels:{ boxWidth:12, padding:14 } },
-      tooltip:{ callbacks:{ label: c => " " + c.label + ": " + inr(c.parsed) } } } }
+      backgroundColor: spendKeys.map((_,i)=>palette[i%palette.length]),
+      borderColor:_card, borderWidth:3, hoverOffset:14, hoverBorderColor:_card }]},
+    options: { responsive:true, maintainAspectRatio:false, cutout:"66%",
+      animation:{ duration:700, easing:"easeOutQuart" },
+      plugins:{ legend:{ position:"bottom", labels:{ boxWidth:10, usePointStyle:true, pointStyle:"circle", padding:14 } },
+      tooltip:{ backgroundColor:_dk?"#0d111b":"#172033", padding:12, cornerRadius:10,
+        callbacks:{ label: c => " " + c.label + ": " + inr(c.parsed) } } } }
   });
 }
 
