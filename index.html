@@ -344,6 +344,18 @@ body{background:radial-gradient(circle at 90% 0%,#eef0ff 0,transparent 32%),var(
 .mobile-tabs{border:1px solid var(--line)}
 @media(max-width:860px){#appView{padding:18px 14px 110px}.page-head h2{font-size:28px}}
 </style>
+<style>
+/* Custom gradient dropdowns: native option popups cannot be themed consistently. */
+.gm-select-wrap{position:relative}
+.gm-select-native{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.gm-select-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;cursor:pointer;color:var(--text);background:linear-gradient(135deg,#273b78,#3159a7 55%,#4e6ed0);border:1px solid rgba(155,185,255,.62);border-radius:12px;padding:12px 16px;box-shadow:0 8px 20px rgba(30,70,160,.24),inset 0 1px 0 rgba(255,255,255,.35)}
+.gm-select-trigger::after{content:"⌄";font-size:18px;color:#dce8ff}
+.gm-select-menu{position:absolute;z-index:80;left:0;right:0;top:calc(100% + 6px);display:none;max-height:240px;overflow:auto;padding:6px;border:1px solid rgba(141,180,255,.68);border-radius:14px;background:linear-gradient(155deg,#172b5d,#2452a0 58%,#4569c4);box-shadow:0 20px 42px rgba(4,15,45,.5),inset 0 1px 0 rgba(255,255,255,.2)}
+.gm-select-wrap.open .gm-select-menu{display:block}
+.gm-select-option{padding:10px 12px;border-radius:9px;color:#fff;cursor:pointer}
+.gm-select-option:hover,.gm-select-option.selected{background:linear-gradient(90deg,#83b9ff,#8d7cff);color:#fff}
+[data-theme="dark"] .gm-select-trigger{color:#fff}
+</style>
 </head>
 <body>
 
@@ -1564,6 +1576,22 @@ function subscribeUpdates(){
 }
 
 /* ================= INIT ================= */
+function enhanceGradientSelects(){
+  document.querySelectorAll("select.pill-input:not(.gm-select-native)").forEach(sel=>{
+    const wrap=document.createElement("div"); wrap.className="gm-select-wrap";
+    sel.parentNode.insertBefore(wrap,sel); wrap.appendChild(sel); sel.classList.add("gm-select-native");
+    const trigger=document.createElement("button"); trigger.type="button"; trigger.className="gm-select-trigger";
+    const menu=document.createElement("div"); menu.className="gm-select-menu";
+    const sync=()=>{trigger.firstChild?trigger.firstChild.textContent=sel.options[sel.selectedIndex]?.text||"Select…":trigger.textContent=sel.options[sel.selectedIndex]?.text||"Select…"; menu.querySelectorAll(".gm-select-option").forEach((o,i)=>o.classList.toggle("selected",i===sel.selectedIndex));};
+    Array.from(sel.options).forEach((opt,i)=>{const item=document.createElement("div");item.className="gm-select-option";item.textContent=opt.text;item.onclick=()=>{sel.selectedIndex=i;sel.dispatchEvent(new Event("change",{bubbles:true}));sync();wrap.classList.remove("open")};menu.appendChild(item)});
+    trigger.onclick=()=>{document.querySelectorAll(".gm-select-wrap.open").forEach(w=>w!==wrap&&w.classList.remove("open"));wrap.classList.toggle("open")};
+    wrap.append(trigger,menu); sync();
+  });
+}
+document.addEventListener("click",e=>{if(!e.target.closest(".gm-select-wrap"))document.querySelectorAll(".gm-select-wrap.open").forEach(w=>w.classList.remove("open"))});
+const selectObserver=new MutationObserver(()=>enhanceGradientSelects());
+selectObserver.observe(document.getElementById("appView")||document.body,{childList:true,subtree:true});
+setTimeout(enhanceGradientSelects,100);
 fillBanks();
 boot();
 </script>
